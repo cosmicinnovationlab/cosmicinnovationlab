@@ -1,0 +1,1270 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COSMICInnovationLab - Future Technology Solutions</title>
+    <link rel="icon" type="image/png" href="nonacadlogo.png">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+
+    <style>
+        /* ... your other styles ... */
+
+        #mobile-menu {
+            transition: max-height 0.3s ease-in-out;
+            max-height: 0;
+            overflow: hidden;
+        }
+
+        #mobile-menu.open {
+            max-height: 300px;
+            /* Adjust based on your menu height */
+        }
+
+        /* Mobile menu needs to be visible (not display:none) for the transition to work */
+        #mobile-menu.hidden {
+            display: none;
+        }
+
+        #mobile-menu:not(.hidden) {
+            display: block;
+        }
+
+        /* ... your other styles ... */
+    </style>
+    <style>
+        /* Prevent horizontal overflow */
+        html,
+        body {
+            overflow-x: hidden;
+            width: 100%;
+            max-width: 100%;
+        }
+
+
+
+
+        /* Fix navigation bar */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
+            z-index: 50;
+            overflow: hidden;
+        }
+
+        /* Fix Swiper slider */
+        .swiper-container {
+            width: 100%;
+            overflow: hidden;
+        }
+
+        /* Other styles */
+        .swiper-slide {
+            width: 616px;
+            height: 250px;
+            display: flex;
+            background: transparent;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .process-icon {
+            width: 192px;
+            height: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #85A947;
+            color: white;
+            flex-shrink: 0;
+            border-radius: 10px 0 0 10px;
+        }
+
+        .process-content {
+            width: 424px;
+            padding: 24px;
+            flex-shrink: 0;
+            background-color: #85A947;
+            color: white;
+            border-radius: 0 10px 10px 0;
+        }
+
+        .process-title {
+            margin: 0;
+            font-size: 36px;
+            font-weight: 700;
+        }
+
+        .process-text {
+            font-size: 16px;
+            line-height: 1.62;
+            margin-top: 12px;
+        }
+
+        .process-step {
+            color: inherit;
+            text-decoration: none;
+            float: right;
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        .swiper-button-prev,
+        .swiper-button-next {
+            color: #85A947;
+            background: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .swiper-button-prev::after,
+        .swiper-button-next::after {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            .swiper-slide {
+                width: 90%;
+                height: auto;
+                flex-direction: column;
+            }
+
+            .process-icon {
+                width: 100%;
+                height: 150px;
+                border-radius: 10px 10px 0 0;
+            }
+
+            .process-content {
+                width: 100%;
+                border-radius: 0 0 10px 10px;
+            }
+
+            .process-title {
+                font-size: 28px;
+            }
+
+            .process-text {
+                font-size: 14px;
+            }
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #EFE3C2;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #85A947;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #3E7B27;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .bg-custom-dark-green {
+            background-color: #123524;
+        }
+
+        .bg-custom-light-beige {
+            background-color: #EFE3C2;
+        }
+
+        .bg-custom-medium-green {
+            background-color: #3E7B27;
+        }
+
+        .bg-custom-light-green {
+            background-color: #85A947;
+        }
+
+        .bg-custom-pale-green {
+            background-color: #F7FAF5;
+        }
+
+        .text-custom-dark-green {
+            color: #123524;
+        }
+
+        .text-custom-light-beige {
+            color: #EFE3C2;
+        }
+
+        .text-custom-medium-green {
+            color: #3E7B27;
+        }
+
+        .text-custom-light-green {
+            color: #85A947;
+        }
+
+        .border-custom-dark-green {
+            border-color: #123524;
+        }
+
+        @keyframes marquee {
+            0% {
+                transform: translateX(0%);
+            }
+
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+
+        .animate-marquee {
+            display: flex;
+            animation: marquee 20s linear infinite;
+        }
+
+        .animate-marquee:hover {
+            animation-play-state: paused;
+        }
+    </style>
+</head>
+
+<body class="bg-custom-light-beige font-sans">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-custom-dark-green shadow-lg z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <!-- Logo and Text -->
+            <a href="#home" class="flex items-center text-2xl font-bold text-custom-light-beige">
+                <!-- Add the logo here -->
+                <img src="nonacadlogo.png" alt="Logo" class="h-8 mr-2"> <!-- Adjust the logo size as needed -->
+                COSMICInnovationLab
+            </a>
+            <!-- Hamburger Menu Button -->
+            <button id="mobile-menu-button" class="md:hidden text-custom-light-beige focus:outline-none">
+                <span class="material-icons text-3xl">menu</span>
+            </button>
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex space-x-8">
+                <a href="#home"
+                    class="text-custom-light-beige hover:text-custom-light-green transition-colors duration-300">Home</a>
+                <a href="#about"
+                    class="text-custom-light-beige hover:text-custom-light-green transition-colors duration-300">About
+                    Us</a>
+                <a href="#services"
+                    class="text-custom-light-beige hover:text-custom-light-green transition-colors duration-300">Services</a>
+                <a href="#contactfooter"
+                    class="text-custom-light-beige hover:text-custom-light-green transition-colors duration-300">Contact
+                    Us</a>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu"
+            class="md:hidden hidden bg-custom-dark-green shadow-inner border-t border-custom-light-beige/20">
+            <div class="flex flex-col space-y-4 p-4">
+                <a href="#home"
+                    class="text-custom-light-beige hover:text-custom-light-green transition-colors duration-300">Home</a>
+                <a href="#about"
+                    class="text-custom-light-beige hover:text-custom-light-green transition-colors duration-300">About
+                    Us</a>
+                <a href="#services"
+                    class="text-custom-light-beige hover:text-custom-light-green transition-colors duration-300">Services</a>
+                <a href="#contactfooter"
+                    class="text-custom-light-beige hover:text-custom-light-green transition-colors duration-300">Contact
+                    Us</a>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- Home Section -->
+    <section id="home" class="min-h-screen flex items-center justify-center bg-custom-light-beige">
+        <div class="text-center px-4">
+            <h1 class="text-5xl md:text-7xl font-bold text-custom-dark-green">Welcome to COSMICInnovationLab</h1>
+            <p class="mt-4 text-xl text-custom-medium-green">Your Partner in Building Scalable Software Solutions</p>
+            <p class="mt-6 max-w-2xl mx-auto text-custom-dark-green">
+                COSMICInnovationLab is a leading technology solutions provider, specializing in building industry-grade
+                SaaS platforms, Websites, in-premise software, startup MVPs, mobile apps, web apps, and customized
+                portfolio websites. We deliver end-to-end software development and maintenance services to help
+                businesses thrive in the digital age.
+            </p>
+            <p class="mt-6 max-w-2xl mx-auto text-custom-dark-green">
+                Got a Business Idea? Let's build the MVP!
+            </p>
+            <div class="mt-8 space-x-4">
+                <a href="#about"
+                    class="bg-custom-light-green text-white px-6 py-3 rounded-lg hover:bg-custom-medium-green transition-colors duration-300">Learn
+                    More</a>
+                <a href="https://wa.me/918789698369?text=Hello%2C%20COSMIC%20Innovation!%20I%20would%20like%20to%20enquire%20about%20a%20software%20development%20requirement.%20Could%20you%20please%20provide%20more%20details%3F"
+                    class="bg-custom-dark-green text-white px-6 py-3 rounded-lg hover:bg-custom-medium-green transition-colors duration-300">Contact
+                    Us</a>
+            </div>
+            <!-- Blurred text section -->
+            <div class="mt-6 text-lg font-semibold text-custom-dark-green opacity-40 duration-300">
+                Website • Startup MVP • Task Automation • Chatbot • AI Apps • AI Agents
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center text-custom-dark-green">About COSMICInnovationLab</h2>
+            <div class="mt-12 grid md:grid-cols-2 gap-12 items-start">
+                <div><img src="1.jpg" alt="About COSMICInnovationLab" class="w-full rounded-xl shadow-lg"></div>
+                <div class="space-y-8">
+                    <div>
+                        <h3 class="text-2xl font-bold text-custom-medium-green">Who We Are?</h3>
+                        <p class="mt-4 text-custom-dark-green mb-10">COSMICInnovationLab is a technology solutions
+                            provider, dedicated to delivering innovative software solutions tailored to your business
+                            needs. From startups to enterprises, we help you build scalable, secure, and user-friendly
+                            software that drives growth and efficiency.</p>
+                    </div>
+                    <div class="mb-10">
+                        <h3 class="text-2xl font-bold text-custom-medium-green">Why Choose COSMICInnovationLab?</h3>
+                        <ul class="mt-4 space-y-4 text-custom-dark-green">
+                            <li class="flex items-start"><i
+                                    class="fas fa-project-diagram text-custom-medium-green mt-3 mr-3"></i><span><strong>End-to-End
+                                        Solutions:</strong> From ideation to deployment, we handle every aspect of
+                                    software development.</span></li>
+                            <li class="flex items-start"><i
+                                    class="fas fa-user-tie text-custom-medium-green mt-3 mr-3"></i><span><strong>Expert
+                                        Team:</strong> Our team of seasoned professionals brings years of experience in
+                                    building cutting-edge software.</span></li>
+                            <li class="flex items-start"><i
+                                    class="fas fa-tools text-custom-medium-green mt-3 mr-3"></i><span><strong>Customized
+                                        Solutions:</strong> We tailor our solutions to meet your unique business
+                                    requirements.</span></li>
+                            <li class="flex items-start"><i
+                                    class="fas fa-network-wired text-custom-medium-green mt-3 mr-3"></i><span><strong>Scalable
+                                        & Secure:</strong> Our solutions are designed to grow with your business while
+                                    ensuring top-notch security.</span></li>
+                        </ul>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center mt-10">
+                        <div
+                            class="p-6 bg-custom-pale-green rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+                            <p class="text-5xl font-bold text-custom-dark-green">5+</p>
+                            <p class="mt-2 text-custom-medium-green">Years of Experience</p>
+                        </div>
+                        <div
+                            class="p-6 bg-custom-pale-green rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+                            <p class="text-5xl font-bold text-custom-dark-green">90%</p>
+                            <p class="mt-2 text-custom-medium-green">Client Retention</p>
+                        </div>
+                        <div
+                            class="p-6 bg-custom-pale-green rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+                            <p class="text-5xl font-bold text-custom-dark-green">50+</p>
+                            <p class="mt-2 text-custom-medium-green">Projects Delivered</p>
+                        </div>
+                    </div>
+                    <div class="quote-box mt-4 p-8 bg-custom-medium-green text-white rounded-xl shadow-lg">
+                        <blockquote class="text-xl italic">"We believe that great software is built by great people, for
+                            great businesses."</blockquote>
+                        <p class="mt-4 text-right">— COSMICInnovationLab Team</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Agile Approach Section - Full Width with Quantitative Metrics -->
+            <div class="mt-20">
+                <h3 class="text-2xl font-bold text-custom-medium-green text-center mb-12">Our Approach</h3>
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                    <div
+                        class="text-center p-6 bg-custom-pale-green rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300">
+                        <i class="fas fa-rocket text-5xl text-custom-medium-green mb-4"></i>
+                        <p class="text-4xl font-bold text-custom-dark-green">40% Faster</p>
+                        <p class="mt-2 text-lg text-custom-medium-green">Time to Market</p>
+                        <p class="mt-4 text-custom-dark-green">We deliver solutions faster, ensuring you stay ahead of
+                            the competition.</p>
+                    </div>
+                    <div
+                        class="text-center p-6 bg-custom-pale-green rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300">
+                        <i class="fas fa-microchip text-5xl text-custom-medium-green mb-4"></i>
+                        <p class="text-4xl font-bold text-custom-dark-green">100+</p>
+                        <p class="mt-2 text-lg text-custom-medium-green">Technologies Used</p>
+                        <p class="mt-4 text-custom-dark-green">Leverage cutting-edge technology for a competitive
+                            advantage.</p>
+                    </div>
+                    <div
+                        class="text-center p-6 bg-custom-pale-green rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300">
+                        <i class="fas fa-smile text-5xl text-custom-medium-green mb-4"></i>
+                        <p class="text-4xl font-bold text-custom-dark-green">110%</p>
+                        <p class="mt-2 text-lg text-custom-medium-green">Client Satisfaction</p>
+                        <p class="mt-4 text-custom-dark-green">Our solutions are designed to meet and exceed client
+                            expectations.</p>
+                    </div>
+                    <div
+                        class="text-center p-6 bg-custom-pale-green rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300">
+                        <i class="fas fa-shield-alt text-5xl text-custom-medium-green mb-4"></i>
+                        <p class="text-4xl font-bold text-custom-dark-green">24/7</p>
+                        <p class="mt-2 text-lg text-custom-medium-green">Support & Security</p>
+                        <p class="mt-4 text-custom-dark-green">We ensure your systems are secure and always available.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-custom-light-beige">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center text-custom-dark-green">Our Services</h2>
+            <div class="mt-12 grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-lg shadow-lg hover:scale-105 transition-transform duration-300">
+                    <span class="material-icons text-6xl text-custom-light-green block mx-auto">smart_toy</span>
+                    <h3 class="mt-4 text-2xl font-bold text-custom-dark-green">SaaS Development</h3>
+                    <p class="mt-2 text-custom-medium-green">We build scalable and secure SaaS platforms tailored to
+                        your business needs.</p>
+                </div>
+                <div class="bg-white p-8 rounded-lg shadow-lg hover:scale-105 transition-transform duration-300">
+                    <span class="material-icons text-6xl text-custom-light-green block mx-auto">place</span>
+                    <h3 class="mt-4 text-2xl font-bold text-custom-dark-green">Local Business SEO & Google Profile
+                        Ranking</h3>
+                    <p class="mt-2 text-custom-medium-green">
+                        We optimize and rank your Google Business Profile to increase local visibility, calls, website
+                        visits, and customer trust.
+                    </p>
+                </div>
+
+                <div class="bg-white p-8 rounded-lg shadow-lg hover:scale-105 transition-transform duration-300">
+                    <span class="material-icons text-6xl text-custom-light-green block mx-auto">business</span>
+                    <h3 class="mt-4 text-2xl font-bold text-custom-dark-green">In-Premise Software</h3>
+                    <p class="mt-2 text-custom-medium-green">Custom software solutions for businesses requiring
+                        on-premise deployment.</p>
+                </div>
+                <div class="bg-white p-8 rounded-lg shadow-lg hover:scale-105 transition-transform duration-300">
+                    <span class="material-icons text-6xl text-custom-light-green block mx-auto">rocket_launch</span>
+                    <h3 class="mt-4 text-2xl font-bold text-custom-dark-green">Startup MVP</h3>
+                    <p class="mt-2 text-custom-medium-green">We help startups build and launch their Minimum Viable
+                        Product (MVP) quickly and efficiently.</p>
+                </div>
+                <div class="bg-white p-8 rounded-lg shadow-lg hover:scale-105 transition-transform duration-300">
+                    <span class="material-icons text-6xl text-custom-light-green block mx-auto">phone_iphone</span>
+                    <h3 class="mt-4 text-2xl font-bold text-custom-dark-green">Mobile App Development</h3>
+                    <p class="mt-2 text-custom-medium-green">We design and develop cross-platform and native mobile apps
+                        for iOS and Android.</p>
+                </div>
+                <div class="bg-white p-8 rounded-lg shadow-lg hover:scale-105 transition-transform duration-300">
+                    <span class="material-icons text-6xl text-custom-light-green block mx-auto">web</span>
+                    <h3 class="mt-4 text-2xl font-bold text-custom-dark-green">Web App Development</h3>
+                    <p class="mt-2 text-custom-medium-green">We build responsive and user-friendly web applications
+                        tailored to your needs.</p>
+                </div>
+                <div class="bg-white p-8 rounded-lg shadow-lg hover:scale-105 transition-transform duration-300">
+                    <span class="material-icons text-6xl text-custom-light-green block mx-auto">brush</span>
+                    <h3 class="mt-4 text-2xl font-bold text-custom-dark-green">Portfolio Websites</h3>
+                    <p class="mt-2 text-custom-medium-green">We create stunning and customized portfolio websites to
+                        showcase your work.</p>
+                </div>
+                <div class="bg-white p-8 rounded-lg shadow-lg hover:scale-105 transition-transform duration-300">
+                    <span class="material-icons text-6xl text-custom-light-green block mx-auto">settings</span>
+                    <h3 class="mt-4 text-2xl font-bold text-custom-dark-green">Software Maintenance</h3>
+                    <p class="mt-2 text-custom-medium-green">We provide ongoing support and maintenance to keep your
+                        software running smoothly.</p>
+                </div>
+            </div>
+            <div class="mt-12 text-center">
+                <a href="https://wa.me/918789698369?text=Hello%2C%20COSMIC%20Innovation!%20I%20would%20like%20to%20enquire%20about%20a%20software%20development%20requirement.%20Could%20you%20please%20provide%20more%20details%3F
+" class="px-8 py-4 bg-gray-300 text-gray-700 text-lg font-bold rounded-lg shadow-lg hover:bg-gray-400 transition-colors duration-300">Book
+                    Appointment</a>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Our Expertise Section -->
+    <section id="expertise" class="py-20 bg-custom-pale-green">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center text-custom-dark-green">Our Expertise</h2>
+            <p class="mt-4 text-lg text-center text-custom-medium-green max-w-2xl mx-auto">
+                From startups to enterprises, we specialize in building scalable, secure, and innovative software
+                solutions tailored to your business needs.
+            </p>
+            <div class="mt-12 grid md:grid-cols-3 gap-8">
+                <!-- Scaling Solutions -->
+                <div class="bg-white p-8 rounded-lg shadow-lg hover:scale-105 transition-transform duration-300">
+                    <span class="material-icons text-6xl text-custom-light-green block mx-auto">trending_up</span>
+                    <h3 class="mt-4 text-2xl font-bold text-custom-dark-green">Scalable Solutions</h3>
+                    <p class="mt-2 text-custom-medium-green">
+                        We design and implement scalable systems that grow with your business, ensuring seamless
+                        performance even under heavy loads.
+                    </p>
+                </div>
+                <!-- User Growth Strategies -->
+                <div class="bg-white p-8 rounded-lg shadow-lg hover:scale-105 transition-transform duration-300">
+                    <span class="material-icons text-6xl text-custom-light-green block mx-auto">group_add</span>
+                    <h3 class="mt-4 text-2xl font-bold text-custom-dark-green">User-Centric Design</h3>
+                    <p class="mt-2 text-custom-medium-green">
+                        Our solutions are designed with the end-user in mind, ensuring a seamless and engaging
+                        experience.
+                    </p>
+                </div>
+                <!-- Performance Optimization -->
+                <div class="bg-white p-8 rounded-lg shadow-lg hover:scale-105 transition-transform duration-300">
+                    <span class="material-icons text-6xl text-custom-light-green block mx-auto">speed</span>
+                    <h3 class="mt-4 text-2xl font-bold text-custom-dark-green">Performance Optimization</h3>
+                    <p class="mt-2 text-custom-medium-green">
+                        We optimize your systems for peak performance, ensuring fast load times and a smooth user
+                        experience at any scale.
+                    </p>
+                </div>
+            </div>
+            <!-- Metrics Section -->
+            <div class="mt-20 grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div
+                    class="text-center p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300">
+                    <p class="text-5xl font-bold text-custom-dark-green">10x</p>
+                    <p class="mt-2 text-lg text-custom-medium-green">Scalability</p>
+                    <p class="mt-4 text-custom-dark-green">We’ve helped businesses scale their systems to handle 10x
+                        user growth without compromising performance.</p>
+                </div>
+                <div
+                    class="text-center p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300">
+                    <p class="text-5xl font-bold text-custom-dark-green">100k+</p>
+                    <p class="mt-2 text-lg text-custom-medium-green">Active Users</p>
+                    <p class="mt-4 text-custom-dark-green">Our solutions support platforms with over 100,000 active
+                        users, ensuring reliability and scalability.</p>
+                </div>
+                <div
+                    class="text-center p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300">
+                    <p class="text-5xl font-bold text-custom-dark-green">99.9%</p>
+                    <p class="mt-2 text-lg text-custom-medium-green">Uptime</p>
+                    <p class="mt-4 text-custom-dark-green">We guarantee high availability with 99.9% uptime, ensuring
+                        your business is always online.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Section -->
+    <section id="technology" class="py-20 bg-custom-pale-green">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center text-custom-dark-green">Our Technology</h2>
+            <p class="mt-4 text-lg text-center text-custom-medium-green max-w-2xl mx-auto">Driving digital
+                transformation through advanced tech capabilities and cutting-edge solutions.</p>
+
+            <!-- Desktop Layout -->
+            <div class="mt-12 hidden md:flex gap-8" id="desktop-view">
+                <div class="w-1/3 bg-white rounded-lg shadow-md p-6 relative" id="tech-menu"></div>
+                <div class="w-2/3 bg-white rounded-lg shadow-md p-6" id="tech-content"></div>
+            </div>
+
+            <!-- Mobile Layout -->
+            <div class="mt-12 md:hidden" id="mobile-view"></div>
+        </div>
+    </section>
+
+
+
+
+    <section id="portfolio" class="py-12 bg-custom-pale-green">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center text-custom-dark-green mb-2">Our Portfolio</h2>
+            <p class="text-center text-sm text-custom-medium-green mb-1">
+                📅 Portfolio last updated: <strong>21st June 2025</strong> — many more projects yet to be added!
+            </p>
+
+            <!-- Horizontal Scroll Container -->
+            <div
+                class="overflow-x-auto whitespace-nowrap scrollbar-thin scrollbar-track-custom-pale-green scrollbar-thumb-custom-light-green text-center mt-8">
+                <div class="inline-flex space-x-8 justify-center min-w-full">
+                    <!-- IELTSAppeal -->
+                    <div
+                        class="inline-block w-80 bg-white p-4 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+                        <div class="flex items-center space-x-3">
+                            <img src="https://www.google.com/s2/favicons?domain=ieltsappeal.in"
+                                alt="IELTSAppeal Favicon" class="w-8 h-8 rounded-full">
+                            <div>
+                                <h3 class="text-lg font-bold text-custom-dark-green">IELTSAppeal</h3>
+                                <p class="text-xs text-custom-medium-green mt-1">IELTS Preparation & Resources</p>
+                                <a href="https://ieltsappeal.in/" target="_blank"
+                                    class="mt-2 inline-block text-custom-light-green hover:text-custom-medium-green transition text-sm">Visit
+                                    Website</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Samarth Clinics -->
+                    <div
+                        class="inline-block w-80 bg-white p-4 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+                        <div class="flex items-center space-x-3">
+                            <img src="https://www.google.com/s2/favicons?domain=samarthclinics.com"
+                                alt="Samarth Clinics Favicon" class="w-8 h-8 rounded-full">
+                            <div>
+                                <h3 class="text-lg font-bold text-custom-dark-green">Samarth Clinics</h3>
+                                <p class="text-xs text-custom-medium-green mt-1">Physiotherapy Services</p>
+                                <a href="https://samarthclinics.com/" target="_blank"
+                                    class="mt-2 inline-block text-custom-light-green hover:text-custom-medium-green transition text-sm">Visit
+                                    Website</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- RIA Institute -->
+                    <div
+                        class="inline-block w-80 bg-white p-4 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+                        <div class="flex items-center space-x-3">
+                            <img src="https://www.google.com/s2/favicons?domain=riainstitute.co.in"
+                                alt="RIA Institute Favicon" class="w-8 h-8 rounded-full">
+                            <div>
+                                <h3 class="text-lg font-bold text-custom-dark-green">RIA Institute</h3>
+                                <p class="text-xs text-custom-medium-green mt-1">IT Training</p>
+                                <a href="https://riainstitute.co.in/" target="_blank"
+                                    class="mt-2 inline-block text-custom-light-green hover:text-custom-medium-green transition text-sm">Visit
+                                    Website</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- YYC Flooring -->
+                    <div
+                        class="inline-block w-80 bg-white p-4 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+                        <div class="flex items-center space-x-3">
+                            <img src="https://www.google.com/s2/favicons?domain=yycflooring.ca"
+                                alt="YYC Flooring Favicon" class="w-8 h-8 rounded-full">
+                            <div>
+                                <h3 class="text-lg font-bold text-custom-dark-green">YYC Flooring</h3>
+                                <p class="text-xs text-custom-medium-green mt-1">Interior Designing</p>
+                                <a href="https://yycflooring.ca/" target="_blank"
+                                    class="mt-2 inline-block text-custom-light-green hover:text-custom-medium-green transition text-sm">Visit
+                                    Website</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Kashi IT College -->
+                    <div
+                        class="inline-block w-80 bg-white p-4 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+                        <div class="flex items-center space-x-3">
+                            <img src="https://www.google.com/s2/favicons?domain=kashiit.ac.in"
+                                alt="Kashi IT College Favicon" class="w-8 h-8 rounded-full">
+                            <div>
+                                <h3 class="text-lg font-bold text-custom-dark-green">Kashi IT College</h3>
+                                <p class="text-xs text-custom-medium-green mt-1">Graduation & Masters Programs</p>
+                                <a href="https://www.kashiit.ac.in/" target="_blank"
+                                    class="mt-2 inline-block text-custom-light-green hover:text-custom-medium-green transition text-sm">Visit
+                                    Website</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- IELTSAppeal .com -->
+                    <div
+                        class="inline-block w-80 bg-white p-4 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+                        <div class="flex items-center space-x-3">
+                            <img src="https://www.google.com/s2/favicons?domain=ieltsappeal.com"
+                                alt="IELTSAppeal Favicon" class="w-8 h-8 rounded-full">
+                            <div>
+                                <h3 class="text-lg font-bold text-custom-dark-green">IELTSAppeal</h3>
+                                <p class="text-xs text-custom-medium-green mt-1">IELTS Preparation & Resources</p>
+                                <a href="https://ieltsappeal.com/" target="_blank"
+                                    class="mt-2 inline-block text-custom-light-green hover:text-custom-medium-green transition text-sm">Visit
+                                    Website</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ✅ NEW: RSK Public School -->
+                    <div
+                        class="inline-block w-80 bg-white p-4 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+                        <div class="flex items-center space-x-3">
+                            <img src="https://www.google.com/s2/favicons?domain=rskpublicschool.com"
+                                alt="RSK Public School Favicon" class="w-8 h-8 rounded-full">
+                            <div>
+                                <h3 class="text-lg font-bold text-custom-dark-green">RSK Public School</h3>
+                                <p class="text-xs text-custom-medium-green mt-1">School & Education</p>
+                                <a href="https://rskpublicschool.com/" target="_blank"
+                                    class="mt-2 inline-block text-custom-light-green hover:text-custom-medium-green transition text-sm">Visit
+                                    Website</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- "More Coming Soon" placeholder card -->
+                    <div
+                        class="inline-block w-80 bg-white p-4 rounded-lg shadow-lg border-2 border-dashed border-custom-light-green opacity-70">
+                        <div class="flex items-center justify-center h-full space-x-3 py-2">
+                            <div class="text-center">
+                                <span class="material-icons text-4xl text-custom-light-green">more_horiz</span>
+                                <h3 class="text-lg font-bold text-custom-dark-green mt-1">More Coming Soon</h3>
+                                <p class="text-xs text-custom-medium-green mt-1">We're constantly growing our portfolio
+                                    with exciting new projects.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Call to Action Section -->
+    <section class="text-center bg-gray-200 text-gray-800 py-12 px-6">
+        <div class="max-w-3xl mx-auto">
+            <h1 class="text-3xl md:text-5xl font-bold mb-4">Ready to Transform Your Business?</h1>
+            <p class="text-lg md:text-xl mb-6">Let’s guide you through a seamless digital transformation process.</p>
+            <a href="https://wa.me/918789698369?text=Hello%2C%20COSMIC%20Innovation!%20I%20would%20like%20to%20enquire%20about%20a%20software%20development%20requirement.%20Could%20you%20please%20provide%20more%20details%3F
+" class="inline-block bg-green-800 text-white px-6 py-3 rounded-full font-semibold hover:bg-green-700 transition">Talk
+                To Our Experts</a>
+        </div>
+
+        <!-- Statistics Section -->
+        <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+            <div>
+                <h2 class="text-4xl font-bold text-green-800">5+</h2>
+                <p class="text-lg mt-2">Years in Service</p>
+            </div>
+            <div>
+                <h2 class="text-4xl font-bold text-green-800">50+</h2>
+                <p class="text-lg mt-2">Projects Delivered</p>
+            </div>
+            <div>
+                <h2 class="text-4xl font-bold text-green-800">95%</h2>
+                <p class="text-lg mt-2">Client Satisfaction</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="py-12">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-xl font-medium text-gray-600">Our Process Involvement</h2>
+                <p class="text-3xl font-bold text-gray-800 mt-2">
+                    Maximizing <span class="text-green-600">software engineering</span> output
+                </p>
+            </div>
+
+            <!-- Slider main container -->
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    <!-- Process Steps -->
+                    <div class="swiper-slide">
+                        <div class="process-icon">
+                            <i class="fas fa-search text-5xl"></i>
+                        </div>
+                        <div class="process-content">
+                            <h2 class="process-title">Discovery</h2>
+                            <p class="process-text">Initial consultation and requirements gathering to understand your
+                                project needs.</p>
+                            <span class="process-step">Step 01</span>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <div class="process-icon">
+                            <i class="fas fa-file-alt text-5xl"></i>
+                        </div>
+                        <div class="process-content">
+                            <h2 class="process-title">Planning</h2>
+                            <p class="process-text">Detailed documentation and project roadmap development.</p>
+                            <span class="process-step">Step 02</span>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <div class="process-icon">
+                            <i class="fas fa-paint-brush text-5xl"></i>
+                        </div>
+                        <div class="process-content">
+                            <h2 class="process-title">Design</h2>
+                            <p class="process-text">Creating intuitive user interfaces and experiences.</p>
+                            <span class="process-step">Step 03</span>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <div class="process-icon">
+                            <i class="fas fa-code text-5xl"></i>
+                        </div>
+                        <div class="process-content">
+                            <h2 class="process-title">Development</h2>
+                            <p class="process-text">Transforming designs into functional software solutions.</p>
+                            <span class="process-step">Step 04</span>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <div class="process-icon">
+                            <i class="fas fa-vial text-5xl"></i>
+                        </div>
+                        <div class="process-content">
+                            <h2 class="process-title">Testing</h2>
+                            <p class="process-text">Rigorous quality assurance and performance testing.</p>
+                            <span class="process-step">Step 05</span>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <div class="process-icon">
+                            <i class="fas fa-cogs text-5xl"></i>
+                        </div>
+                        <div class="process-content">
+                            <h2 class="process-title">Maintenance</h2>
+                            <p class="process-text">Ongoing support and continuous improvement.</p>
+                            <span class="process-step">Step 06</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Navigation Buttons -->
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Industries Section -->
+    <section id="industries" class="py-20 bg-custom-pale-green">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-xl font-medium text-custom-dark-green">Industries We Serve</h2>
+                <p class="text-3xl font-bold text-custom-dark-green mt-2">Enabling the unified advantage for a broad
+                    spectrum of businesses across industries.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Education -->
+                <div class="bg-white p-8 rounded-lg shadow-lg hover:scale-105 transition-transform duration-300">
+                    <div class="text-center mb-4">
+                        <i class="fas fa-graduation-cap text-4xl text-custom-light-green"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-custom-dark-green">Education</h3>
+                    <p class="mt-2 text-custom-medium-green">
+                        We build innovative learning platforms and tools to enhance the educational experience for
+                        students and educators alike.
+                    </p>
+                </div>
+
+                <!-- Real Estate -->
+                <div class="bg-white p-8 rounded-lg shadow-lg hover:scale-105 transition-transform duration-300">
+                    <div class="text-center mb-4">
+                        <i class="fas fa-building text-4xl text-custom-light-green"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-custom-dark-green">Real Estate</h3>
+                    <p class="mt-2 text-custom-medium-green">
+                        We develop custom software solutions to streamline property management, sales, and customer
+                        engagement.
+                    </p>
+                </div>
+
+                <!-- Finance -->
+                <div class="bg-white p-8 rounded-lg shadow-lg hover:scale-105 transition-transform duration-300">
+                    <div class="text-center mb-4">
+                        <i class="fas fa-coins text-4xl text-custom-light-green"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-custom-dark-green">Finance</h3>
+                    <p class="mt-2 text-custom-medium-green">
+                        We deliver secure and scalable financial software solutions to help businesses manage
+                        transactions, investments, and more.
+                    </p>
+                </div>
+
+                <!-- Healthcare -->
+                <div class="bg-white p-8 rounded-lg shadow-lg hover:scale-105 transition-transform duration-300">
+                    <div class="text-center mb-4">
+                        <i class="fas fa-heartbeat text-4xl text-custom-light-green"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-custom-dark-green">Healthcare</h3>
+                    <p class="mt-2 text-custom-medium-green">
+                        We build healthcare solutions that improve patient care, streamline operations, and ensure
+                        compliance with industry standards.
+                    </p>
+                </div>
+
+                <!-- E-Commerce -->
+                <div class="bg-white p-8 rounded-lg shadow-lg hover:scale-105 transition-transform duration-300">
+                    <div class="text-center mb-4">
+                        <i class="fas fa-shopping-cart text-4xl text-custom-light-green"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-custom-dark-green">E-Commerce</h3>
+                    <p class="mt-2 text-custom-medium-green">
+                        We create e-commerce platforms that deliver seamless shopping experiences and drive business
+                        growth.
+                    </p>
+                </div>
+
+                <!-- Logistics -->
+                <div class="bg-white p-8 rounded-lg shadow-lg hover:scale-105 transition-transform duration-300">
+                    <div class="text-center mb-4">
+                        <i class="fas fa-truck text-4xl text-custom-light-green"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-custom-dark-green">Logistics</h3>
+                    <p class="mt-2 text-custom-medium-green">
+                        We develop logistics software to optimize supply chain management, tracking, and delivery
+                        processes.
+                    </p>
+                </div>
+            </div>
+
+            <p class="text-xs text-custom-dark-green mt-6 text-center">
+                Because every industry deserves cutting-edge software solutions.
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contactfooter" class="py-8 bg-custom-medium-green text-center text-custom-light-beige">
+        <div class="container mx-auto px-4">
+            <!-- Contact Information -->
+            <div class="mb-4">
+                <p class="mb-2">Contact us:</p>
+                <p class="mb-2">
+                    <a href="https://wa.me/918789698369?text=Hello%2C%20COSMIC%20Innovation!%20I%20would%20like%20to%20enquire%20about%20a%20software%20development%20requirement.%20Could%20you%20please%20provide%20more%20details%3F
+" class="hover:text-custom-light-green transition duration-300">
+                        <i class="fab fa-whatsapp mr-2"></i> +91 8789698369
+                    </a>
+                </p>
+                <p>
+                    <a href="mailto:contact@cosmosdigitalhelp"
+                        class="hover:text-custom-light-green transition duration-300">
+                        <i class="fas fa-envelope mr-2"></i> cosmosdigitalhelp@gmail.com
+                    </a>
+                </p>
+            </div>
+
+            <!-- Copyright -->
+            <p class="text-sm">&copy; 2025 COSMICInnovationLab. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Interactive Panes and Dropdowns -->
+    <script>
+        const techData = [
+            {
+                id: 'uiux',
+                title: 'UI/UX Design',
+                icon: 'design_services',
+                description: 'We use the following tools to create stunning and user-friendly designs:',
+                tools: [
+                    { name: 'Figma', logo: 'figma-1' },
+                    { name: 'Sketch', logo: 'sketch-2' },
+                    { name: 'Zeplin', logo: 'zeplin' },
+                    { name: 'Adobe XD', logo: 'adobe-xd' },
+                    { name: 'InVision', logo: 'invision' },
+                    { name: 'Axure RP', logo: 'axure-rp' }
+                ]
+            },
+            {
+                id: 'backend',
+                title: 'Backend Development',
+                icon: 'code',
+                description: 'We use the following tools to build robust and scalable backend systems:',
+                tools: [
+                    { name: 'Node.js', logo: 'nodejs-icon' },
+                    { name: 'Python', logo: 'python-5' },
+                    { name: 'Microservices', logo: 'microservices-1' },
+                    { name: 'Django', logo: 'django' },
+                    { name: 'Spring', logo: 'spring-3' },
+                    { name: 'FastAPI', logo: 'fastapi' }
+                ]
+            },
+            {
+                id: 'mobile',
+                title: 'Mobile Development',
+                icon: 'phone_iphone',
+                description: 'We use the following tools to build cross-platform and native mobile apps:',
+                tools: [
+                    { name: 'Flutter', logo: 'flutter' },
+                    { name: 'React Native', logo: 'react-native-1' },
+                    { name: 'Swift', logo: 'swift-15' },
+                    { name: 'Kotlin', logo: 'kotlin-1' },
+                    { name: 'Xamarin', logo: 'xamarin' },
+                    { name: 'Ionic', logo: 'ionic' }
+                ]
+            },
+            {
+                id: 'database',
+                title: 'Database Solutions',
+                icon: 'storage',
+                description: 'We use the following tools to manage and optimize databases:',
+                tools: [
+                    { name: 'MySQL', logo: 'mysql-6' },
+                    { name: 'PostgreSQL', logo: 'postgresql' },
+                    { name: 'MongoDB', logo: 'mongodb-icon-1' },
+                    { name: 'Redis', logo: 'redis' },
+                    { name: 'Cassandra', logo: 'cassandra' },
+                    { name: 'SQLite', logo: 'sqlite' }
+                ]
+            },
+            {
+                id: 'cloud',
+                title: 'Cloud Solutions',
+                icon: 'cloud',
+                description: 'We use the following tools to build and manage cloud infrastructure:',
+                tools: [
+                    { name: 'AWS', logo: 'aws-2' },
+                    { name: 'Google Cloud', logo: 'google-cloud-1' },
+                    { name: 'Azure', logo: 'azure-2' },
+                    { name: 'Docker', logo: 'docker' },
+                    { name: 'Kubernetes', logo: 'kubernets' },
+                    { name: 'Terraform', logo: 'terraform-enterprise' }
+                ]
+            },
+            {
+                id: 'devops',
+                title: 'DevOps',
+                icon: 'settings',
+                description: 'We use the following tools to streamline development and operations:',
+                tools: [
+                    { name: 'Jenkins', logo: 'jenkins-1' },
+                    { name: 'GitLab', logo: 'gitlab' },
+                    { name: 'Ansible', logo: 'ansible' },
+                    { name: 'Prometheus', logo: 'prometheus' },
+                    { name: 'Grafana', logo: 'grafana' },
+                    { name: 'Terraform', logo: 'terraform-enterprise' }
+                ]
+            },
+            {
+                id: 'ai',
+                title: 'AI & Machine Learning',
+                icon: 'smart_toy',
+                description: 'We use the following tools to build intelligent systems:',
+                tools: [
+                    { name: 'TensorFlow', logo: 'tensorflow-2' },
+                    { name: 'PyTorch', logo: 'pytorch' },
+                    { name: 'Keras', logo: 'keras' },
+                    { name: 'OpenCV', logo: 'opencv-2' },
+                    { name: 'Scikit-Learn', logo: 'scikit-learn' },
+                    { name: 'NumPy', logo: 'numpy' }
+                ]
+            },
+            {
+                id: 'security',
+                title: 'Security',
+                icon: 'security',
+                description: 'We use the following tools to ensure robust security:',
+                tools: [
+                    { name: 'OWASP', logo: 'owasp' },
+                    { name: 'HashiCorp Vault', logo: 'hashicorp-1' },
+                    { name: 'SonarQube', logo: 'sonarqube-1' },
+                    { name: 'Burp Suite', logo: 'burp-suite' },
+                    { name: 'Nmap', logo: 'nmap' },
+                    { name: 'Metasploit', logo: 'metasploit' }
+                ]
+            }
+        ];
+
+        // Generate Desktop Menu
+        document.getElementById('tech-menu').innerHTML = `
+            <h3 class="text-2xl font-bold text-custom-dark-green mb-6">Technologies</h3>
+            <ul class="space-y-4">
+                ${techData.map(tech => `
+                    <li>
+                        <button class="w-full text-left text-custom-dark-green hover:text-custom-light-green transition-colors duration-300 flex items-center gap-4" 
+                                data-tech="${tech.id}">
+                            <span class="material-icons text-custom-light-green">${tech.icon}</span>
+                            ${tech.title}
+                            <span class="ml-auto material-icons text-custom-light-green transition-transform duration-300 hidden">arrow_forward</span>
+                        </button>
+                    </li>
+                `).join('')}
+            </ul>
+        `;
+
+        // Generate Tool Grid
+        function createToolGrid(tools) {
+            return `
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                    ${tools.map(tool => `
+                        <div class="p-4 bg-custom-light-beige rounded-lg text-center">
+                            <img src="https://cdn.worldvectorlogo.com/logos/${tool.logo}.svg" 
+                                 alt="${tool.name}" 
+                                 class="h-12 w-auto mx-auto">
+                            <p class="mt-2 text-custom-dark-green">${tool.name}</p>
+                        </div>
+                    `).join('')}
+                </div>
+            `;
+        }
+
+        // Generate Mobile View
+        document.getElementById('mobile-view').innerHTML = techData.map(tech => `
+            <div class="bg-white rounded-lg shadow-md mb-4">
+                <button class="w-full text-left p-6 text-custom-dark-green hover:text-custom-light-green transition-colors duration-300 flex justify-between items-center" 
+                        data-tech="${tech.id}-mobile">
+                    <span class="flex items-center gap-4">
+                        <span class="material-icons text-custom-light-green">${tech.icon}</span>
+                        ${tech.title}
+                    </span>
+                    <span class="material-icons">expand_more</span>
+                </button>
+                <div id="${tech.id}-mobile" class="hidden p-6 pt-0">
+                    <p class="text-custom-medium-green">${tech.description}</p>
+                    ${createToolGrid(tech.tools)}
+                </div>
+            </div>
+        `).join('');
+
+        // Function to open a specific tab
+        function openTab(techId) {
+            const techItem = techData.find(t => t.id === techId);
+
+            // Update desktop content
+            document.getElementById('tech-content').innerHTML = `
+                <div class="space-y-6">
+                    <h3 class="text-2xl font-bold text-custom-dark-green">${techItem.title}</h3>
+                    <p class="text-custom-medium-green">${techItem.description}</p>
+                    ${createToolGrid(techItem.tools)}
+                </div>
+            `;
+
+            // Update button states
+            document.querySelectorAll('[data-tech]:not([data-tech$="-mobile"]) .material-icons:last-child')
+                .forEach(icon => icon.classList.add('hidden'));
+            document.querySelector(`[data-tech="${techId}"] .material-icons:last-child`).classList.remove('hidden');
+
+            // Update mobile view
+            const mobileContent = document.getElementById(`${techId}-mobile`);
+            if (mobileContent) {
+                mobileContent.classList.remove('hidden');
+                document.querySelector(`[data-tech="${techId}-mobile"] .material-icons:last-child`).textContent = 'expand_less';
+            }
+        }
+
+        // Automatically open the first tab on page load
+        window.addEventListener('load', () => {
+            const firstTechId = techData[0].id;
+            openTab(firstTechId);
+        });
+
+        // Desktop Interaction
+        document.querySelectorAll('[data-tech]:not([data-tech$="-mobile"])').forEach(button => {
+            button.addEventListener('click', () => {
+                const techId = button.getAttribute('data-tech');
+                openTab(techId);
+            });
+        });
+
+        // Mobile Interaction
+        document.querySelectorAll('[data-tech$="-mobile"]').forEach(button => {
+            button.addEventListener('click', () => {
+                const techId = button.getAttribute('data-tech');
+                const content = document.getElementById(techId);
+                const icon = button.querySelector('.material-icons:last-child');
+
+                // Toggle current content
+                content.classList.toggle('hidden');
+                icon.textContent = content.classList.contains('hidden') ? 'expand_more' : 'expand_less';
+
+                // Close other dropdowns
+                document.querySelectorAll('[data-tech$="-mobile"]').forEach(otherButton => {
+                    if (otherButton !== button) {
+                        const otherTechId = otherButton.getAttribute('data-tech');
+                        const otherContent = document.getElementById(otherTechId);
+                        const otherIcon = otherButton.querySelector('.material-icons:last-child');
+
+                        if (otherContent && !otherContent.classList.contains('hidden')) {
+                            otherContent.classList.add('hidden');
+                            otherIcon.textContent = 'expand_more';
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+    <script>
+        const swiper = new Swiper('.swiper-container', {
+            effect: 'coverflow',
+            grabCursor: true,
+            centeredSlides: true,
+            slidesPerView: 'auto',
+            initialSlide: 2,
+            coverflowEffect: {
+                slideShadows: true,
+                rotate: 0,
+                stretch: 0,
+                depth: 100,
+                modifier: 1,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            breakpoints: {
+                320: {
+                    slidesPerView: 1,
+                    spaceBetween: 10,
+                },
+                768: {
+                    slidesPerView: 'auto',
+                    spaceBetween: 20,
+                },
+            },
+        });
+
+        swiper.on('transitionEnd', () => {
+            getSlideContent();
+        });
+
+        function getSlideContent() {
+            const ActiveSlide = document.querySelector('.swiper-slide-active');
+            console.log(ActiveSlide.innerText);
+        }
+    </script>
+
+    <script>
+
+        // Remove all previous mobile menu JavaScript and replace with this
+        document.addEventListener('DOMContentLoaded', function () {
+            // Toggle mobile menu
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            if (mobileMenuButton && mobileMenu) {
+                mobileMenuButton.addEventListener('click', function () {
+                    // Toggle the 'hidden' class to control display
+                    mobileMenu.classList.toggle('hidden');
+
+                    // Toggle the 'open' class to control the height animation
+                    setTimeout(() => {
+                        mobileMenu.classList.toggle('open');
+                    }, 10); // Small delay to ensure the display change happens first
+
+                    console.log('Menu button clicked');
+                });
+
+                // Close mobile menu when a link is clicked
+                const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+                mobileMenuLinks.forEach(link => {
+                    link.addEventListener('click', function () {
+                        mobileMenu.classList.remove('open');
+
+                        // Wait for transition to complete before hiding
+                        setTimeout(() => {
+                            mobileMenu.classList.add('hidden');
+                        }, 300); // Match this to your transition duration
+
+                        console.log('Menu link clicked');
+                    });
+                });
+            } else {
+                console.error('Mobile menu elements not found');
+            }
+        });
+    </script>
+
+</body>
+
+</html>
