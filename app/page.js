@@ -177,6 +177,7 @@ const PORTFOLIO = [
   { name: 'SOT Samarth Clinic', domain: 'sotsamarthclinic.vercel.app', category: 'Speech & Occupational Therapy', url: 'https://sotsamarthclinic.vercel.app/' },
   { name: 'Ranjot Singh & Associates', domain: 'rsallp.com', category: 'Chartered Accountants & Tax Firm', url: 'https://www.rsallp.com/' },
   { name: 'Singh & Partners LLP (SNP Legal)', domain: 'snp-legal.com', category: 'Advocates & Legal Practice', url: 'https://snp-legal.com' },
+  { name: 'Nonacad', domain: 'nonacad.com', category: 'EdTech & Skill Platform', url: 'https://www.nonacad.com/' },
 ];
 
 /* Client proof — real companies, real results. Swap the "media" gif
