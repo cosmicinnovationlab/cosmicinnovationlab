@@ -48,10 +48,10 @@ const NAV_LINKS = [
 ];
 
 const HERO_STATS = [
-  { value: 5, suffix: '+', label: 'Years in orbit' },
-  { value: 50, suffix: '+', label: 'Missions shipped' },
-  { value: 90, suffix: '%', label: 'Client retention' },
-  { value: 99.9, suffix: '%', label: 'Uptime delivered' },
+  { value: 100, suffix: '+', label: 'Projects Delivered' },
+  , { value: 60, suffix: '%+', label: 'Projects came from Referral and Recomendation' },
+  { value: 100, suffix: '%', label: 'Client Satisfaction' },
+  { value: 100, suffix: '%', label: 'Fastest Service Delivery' },
 ];
 
 const WHY_US = [
@@ -157,16 +157,7 @@ const APPROACH_METRICS = [
   { value: 24, suffix: '/7', label: 'Support & monitoring', body: 'Uptime alerts and a real human on the other end of WhatsApp.' },
 ];
 
-const TECH_DATA = [
-  { id: 'uiux', title: 'UI / UX Design', tools: ['Figma', 'Sketch', 'Zeplin', 'Adobe XD', 'InVision', 'Axure RP'] },
-  { id: 'backend', title: 'Backend Development', tools: ['Node.js', 'Python', 'Microservices', 'Django', 'Spring', 'FastAPI'] },
-  { id: 'mobile', title: 'Mobile Development', tools: ['Flutter', 'React Native', 'Swift', 'Kotlin', 'Xamarin', 'Ionic'] },
-  { id: 'database', title: 'Database Solutions', tools: ['MySQL', 'PostgreSQL', 'MongoDB', 'Redis', 'Cassandra', 'SQLite'] },
-  { id: 'cloud', title: 'Cloud Solutions', tools: ['AWS', 'Google Cloud', 'Azure', 'Docker', 'Kubernetes', 'Terraform'] },
-  { id: 'devops', title: 'DevOps', tools: ['Jenkins', 'GitLab', 'Ansible', 'Prometheus', 'Grafana', 'Terraform'] },
-  { id: 'ai', title: 'AI & Machine Learning', tools: ['TensorFlow', 'PyTorch', 'Keras', 'OpenCV', 'Scikit-Learn', 'NumPy'] },
-  { id: 'security', title: 'Security', tools: ['OWASP', 'HashiCorp Vault', 'SonarQube', 'Burp Suite', 'Nmap', 'Metasploit'] },
-];
+
 
 const PROCESS = [
   { stage: '01', title: 'Discovery', body: 'We map the problem, the users, and the constraints before a line of code is written.' },
@@ -178,12 +169,14 @@ const PROCESS = [
 ];
 
 const PORTFOLIO = [
-  { name: 'IELTSAppeal', domain: 'ieltsappeal.in', category: 'IELTS Preparation & Resources', url: 'https://ieltsappeal.in/' },
-  { name: 'Samarth Clinics', domain: 'samarthclinics.com', category: 'Physiotherapy Services', url: 'https://samarthclinics.com/' },
-  { name: 'RIA Institute', domain: 'riainstitute.co.in', category: 'IT Training', url: 'https://riainstitute.co.in/' },
-  { name: 'YYC Flooring', domain: 'yycflooring.ca', category: 'Interior Designing', url: 'https://yycflooring.ca/' },
-  { name: 'Kashi IT College', domain: 'kashiit.ac.in', category: 'Graduation & Masters Programs', url: 'https://www.kashiit.ac.in/' },
+  { name: 'Samarth Clinic', domain: 'samarthclinic.life', category: 'Physiotherapy & Rehabilitation', url: 'https://samarthclinic.life/' },
+  { name: 'Sone Valley International School', domain: 'sonevalley.in', category: 'CBSE School & Education', url: 'https://sonevalley.in/' },
+  { name: 'Modern Global School', domain: 'modernglobalschooldalmianagar.in', category: 'CBSE School & Education', url: 'https://modernglobalschooldalmianagar.in/' },
   { name: 'RSK Public School', domain: 'rskpublicschool.com', category: 'School & Education', url: 'https://rskpublicschool.com/' },
+  { name: 'Visual Connect Network (VCNPL)', domain: 'vcnpl.net', category: 'IT & Technology Integration', url: 'https://vcnpl.net/' },
+  { name: 'SOT Samarth Clinic', domain: 'sotsamarthclinic.vercel.app', category: 'Speech & Occupational Therapy', url: 'https://sotsamarthclinic.vercel.app/' },
+  { name: 'Ranjot Singh & Associates', domain: 'rsallp.com', category: 'Chartered Accountants & Tax Firm', url: 'https://www.rsallp.com/' },
+  { name: 'Singh & Partners LLP (SNP Legal)', domain: 'snp-legal.com', category: 'Advocates & Legal Practice', url: 'https://snp-legal.com' },
 ];
 
 /* Client proof — real companies, real results. Swap the "media" gif
@@ -288,18 +281,18 @@ function GlowPanel({ className = '', children }) {
   );
 }
 
-function GlowButton({ href, children, icon = '🚀' }) {
+function GlowButton({ href, children, icon = '🚀', className = '' }) {
   return (
     <a
       href={href}
       target="_blank"
       rel="noreferrer"
-      className="group relative inline-flex items-stretch overflow-hidden rounded-xl p-[1.5px] shadow-[0_0_25px_-6px_rgba(34,211,238,0.5)] transition-shadow duration-300 hover:shadow-[0_0_40px_-4px_rgba(168,85,247,0.65)]"
+      className={`group relative inline-flex items-stretch overflow-hidden rounded-xl p-[1.5px] shadow-[0_0_25px_-6px_rgba(34,211,238,0.5)] transition-shadow duration-300 hover:shadow-[0_0_40px_-4px_rgba(168,85,247,0.65)] ${className}`}
       style={{ backgroundImage: 'linear-gradient(135deg,#22d3ee,#3b82f6,#a855f7)' }}
     >
-      <span className="flex items-stretch divide-x divide-white/10 rounded-[10px] bg-[#040610]">
-        <span className="flex items-center justify-center px-4 text-lg">{icon}</span>
-        <span className="flex items-center px-6 py-3.5 font-display text-xs font-bold uppercase tracking-[0.2em] text-white">
+      <span className="flex w-full items-stretch divide-x divide-white/10 rounded-[10px] bg-[#040610]">
+        {icon && <span className="flex shrink-0 items-center justify-center px-2.5 text-xs sm:text-sm">{icon}</span>}
+        <span className="flex w-full items-center justify-center px-3 py-3 font-display text-[11px] sm:text-xs font-bold uppercase tracking-[0.12em] sm:tracking-[0.15em] text-white text-center">
           {children}
         </span>
       </span>
@@ -542,6 +535,127 @@ function ParticleField() {
 }
 
 /* ------------------------------------------------------------------ */
+/*  SEA WAVE BACKGROUND — flowing multi-colored waves (right to left)  */
+/* ------------------------------------------------------------------ */
+
+function SeaWaveBackground() {
+  return (
+    <div className="pointer-events-none absolute inset-0 overflow-hidden opacity-80">
+      {/* Multi-color flowing gradient base */}
+      <div className="absolute inset-0 sea-gradient-flow opacity-35" />
+
+      {/* Wave Layer 1: Fast Cyan to Indigo Fill Wave */}
+      <div className="absolute inset-x-0 bottom-0 top-0 w-[200%] animate-sea-wave-1 opacity-55">
+        <svg className="h-full w-full" preserveAspectRatio="none" viewBox="0 0 1200 800" fill="none">
+          <defs>
+            <linearGradient id="seaGrad1" x1="100%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stopColor="#00f2fe" stopOpacity="0.8" />
+              <stop offset="35%" stopColor="#4facfe" stopOpacity="0.7" />
+              <stop offset="70%" stopColor="#0072ff" stopOpacity="0.6" />
+              <stop offset="100%" stopColor="#7f00ff" stopOpacity="0.4" />
+            </linearGradient>
+          </defs>
+          <path
+            d="M0,300 C150,200 350,450 600,320 C850,190 1050,420 1200,300 L1200,800 L0,800 Z M1200,300 C1350,200 1550,450 1800,320 C2050,190 2250,420 2400,300 L2400,800 L1200,800 Z"
+            fill="url(#seaGrad1)"
+          />
+        </svg>
+      </div>
+
+      {/* Wave Layer 2: Coral Sunset & Pink Fill Wave */}
+      <div className="absolute inset-x-0 bottom-0 top-0 w-[200%] animate-sea-wave-2 opacity-50">
+        <svg className="h-full w-full" preserveAspectRatio="none" viewBox="0 0 1200 800" fill="none">
+          <defs>
+            <linearGradient id="seaGrad2" x1="100%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stopColor="#ff758c" stopOpacity="0.8" />
+              <stop offset="40%" stopColor="#ffb199" stopOpacity="0.75" />
+              <stop offset="75%" stopColor="#f107a3" stopOpacity="0.6" />
+              <stop offset="100%" stopColor="#7f00ff" stopOpacity="0.4" />
+            </linearGradient>
+          </defs>
+          <path
+            d="M0,420 C200,540 400,280 600,400 C800,520 1000,260 1200,420 L1200,800 L0,800 Z M1200,420 C1400,540 1600,280 1800,400 C2000,520 2200,260 2400,420 L2400,800 L1200,800 Z"
+            fill="url(#seaGrad2)"
+          />
+        </svg>
+      </div>
+
+      {/* Wave Layer 3: Sleek Thin Glowing Amber & Emerald Wave Line */}
+      <div className="absolute inset-x-0 bottom-0 top-0 w-[200%] animate-sea-wave-3 opacity-75">
+        <svg className="h-full w-full" preserveAspectRatio="none" viewBox="0 0 1200 800" fill="none">
+          <defs>
+            <linearGradient id="thinGrad1" x1="100%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stopColor="#ffbd39" stopOpacity="0.9" />
+              <stop offset="50%" stopColor="#38ef7d" stopOpacity="0.85" />
+              <stop offset="100%" stopColor="#00f2fe" stopOpacity="0.8" />
+            </linearGradient>
+          </defs>
+          <path
+            d="M0,250 C180,140 380,380 600,220 C820,60 1020,340 1200,250 M1200,250 C1380,140 1580,380 1800,220 C2020,60 2220,340 2400,250"
+            stroke="url(#thinGrad1)"
+            strokeWidth="3.5"
+          />
+        </svg>
+      </div>
+
+      {/* Wave Layer 4: Thin Neon Coral & Magenta Wave Line */}
+      <div className="absolute inset-x-0 bottom-0 top-0 w-[200%] animate-sea-wave-4 opacity-80">
+        <svg className="h-full w-full" preserveAspectRatio="none" viewBox="0 0 1200 800" fill="none">
+          <defs>
+            <linearGradient id="thinGrad2" x1="100%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stopColor="#ff758c" stopOpacity="0.9" />
+              <stop offset="45%" stopColor="#f107a3" stopOpacity="0.85" />
+              <stop offset="100%" stopColor="#00c6ff" stopOpacity="0.8" />
+            </linearGradient>
+          </defs>
+          <path
+            d="M0,370 C220,240 420,480 600,340 C780,200 980,440 1200,370 M1200,370 C1420,240 1620,480 1800,340 C1980,200 2180,440 2400,370"
+            stroke="url(#thinGrad2)"
+            strokeWidth="2.5"
+          />
+        </svg>
+      </div>
+
+      {/* Wave Layer 5: Violet Magenta & Seafoam Fill Wave */}
+      <div className="absolute inset-x-0 bottom-0 top-0 w-[200%] animate-sea-wave-5 opacity-55">
+        <svg className="h-full w-full" preserveAspectRatio="none" viewBox="0 0 1200 800" fill="none">
+          <defs>
+            <linearGradient id="seaGrad3" x1="100%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stopColor="#f107a3" stopOpacity="0.7" />
+              <stop offset="35%" stopColor="#7f00ff" stopOpacity="0.7" />
+              <stop offset="70%" stopColor="#38ef7d" stopOpacity="0.6" />
+              <stop offset="100%" stopColor="#00f2fe" stopOpacity="0.5" />
+            </linearGradient>
+          </defs>
+          <path
+            d="M0,200 C250,350 450,150 600,260 C750,370 950,180 1200,200 L1200,800 L0,800 Z M1200,200 C1450,350 1650,150 1800,260 C1950,370 2150,180 2400,200 L2400,800 L1200,800 Z"
+            fill="url(#seaGrad3)"
+          />
+        </svg>
+      </div>
+
+      {/* Wave Layer 6: Thin Glowing Electric Cyan Ribbon Line */}
+      <div className="absolute inset-x-0 bottom-0 top-0 w-[200%] animate-sea-wave-6 opacity-85">
+        <svg className="h-full w-full" preserveAspectRatio="none" viewBox="0 0 1200 800" fill="none">
+          <defs>
+            <linearGradient id="thinGrad3" x1="100%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stopColor="#00f2fe" stopOpacity="0.95" />
+              <stop offset="50%" stopColor="#0072ff" stopOpacity="0.9" />
+              <stop offset="100%" stopColor="#ff758c" stopOpacity="0.85" />
+            </linearGradient>
+          </defs>
+          <path
+            d="M0,160 C260,280 460,80 600,190 C740,300 940,100 1200,160 M1200,160 C1460,280 1660,80 1800,190 C1940,300 2140,100 2400,160"
+            stroke="url(#thinGrad3)"
+            strokeWidth="3"
+          />
+        </svg>
+      </div>
+    </div>
+  );
+}
+
+/* ------------------------------------------------------------------ */
 /*  NETWORK GLOBE — hero visual, rotating point-cloud sphere            */
 /* ------------------------------------------------------------------ */
 
@@ -669,160 +783,7 @@ function NetworkGlobe() {
   );
 }
 
-/* ------------------------------------------------------------------ */
-/*  SMOKE TRAIL — a lightweight canvas particle system simulating real  */
-/*  smoke physics: continuous emission along the cursor's path, rising  */
-/*  buoyancy, turbulent sway, diffusion (growth + softening), and a     */
-/*  smooth fade — plus a few ambient "vents" that puff on their own.    */
-/* ------------------------------------------------------------------ */
 
-function SmokeCanvas({ containerRef }) {
-  const canvasRef = useRef(null);
-  const reduce = useReducedMotion();
-
-  useEffect(() => {
-    if (reduce) return;
-    const canvas = canvasRef.current;
-    const container = containerRef?.current;
-    if (!canvas || !container) return;
-    const ctx = canvas.getContext('2d');
-
-    let w, h, dpr;
-    const resize = () => {
-      dpr = Math.min(window.devicePixelRatio || 1, 2);
-      const rect = container.getBoundingClientRect();
-      w = rect.width;
-      h = rect.height;
-      canvas.width = w * dpr;
-      canvas.height = h * dpr;
-      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    };
-    resize();
-    window.addEventListener('resize', resize);
-
-    const MAX_PARTICLES = 260;
-    let particles = [];
-    let lastX = w / 2;
-    let lastY = h / 2;
-    let hasLast = false;
-    let lastMoveT = performance.now();
-    let hueClock = 0;
-
-    const spawnAt = (x, y, vxBias, vyBias, count) => {
-      hueClock += 1;
-      const hue = 245 + Math.sin(hueClock * 0.045) * 75;
-      for (let i = 0; i < count; i++) {
-        particles.push({
-          x: x + (Math.random() - 0.5) * 6,
-          y: y + (Math.random() - 0.5) * 6,
-          vx: vxBias * 0.16 + (Math.random() - 0.5) * 0.5,
-          vy: vyBias * 0.16 + (Math.random() - 0.5) * 0.5 - 0.3,
-          r: 4 + Math.random() * 5,
-          age: 0,
-          maxAge: 1700 + Math.random() * 1300,
-          hue: hue + (Math.random() - 0.5) * 18,
-          sway: Math.random() * Math.PI * 2,
-          swaySpeed: 0.0016 + Math.random() * 0.0018,
-        });
-      }
-      if (particles.length > MAX_PARTICLES) particles.splice(0, particles.length - MAX_PARTICLES);
-    };
-
-    const onMove = (e) => {
-      const rect = container.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-      if (!hasLast) {
-        lastX = x;
-        lastY = y;
-        hasLast = true;
-      }
-      const dx = x - lastX;
-      const dy = y - lastY;
-      const dist = Math.hypot(dx, dy);
-      const steps = Math.min(8, Math.max(1, Math.floor(dist / 7)));
-      for (let s = 1; s <= steps; s++) {
-        spawnAt(lastX + (dx * s) / steps, lastY + (dy * s) / steps, dx / steps, dy / steps, 2);
-      }
-      lastX = x;
-      lastY = y;
-      lastMoveT = performance.now();
-    };
-    container.addEventListener('mousemove', onMove);
-
-    const idleTimer = setInterval(() => {
-      if (hasLast && performance.now() - lastMoveT > 200) spawnAt(lastX, lastY, 0, -1, 1);
-    }, 260);
-
-    const VENTS = [
-      { x: () => w * 0.12, y: () => h * 0.85 },
-      { x: () => w * 0.5, y: () => h * 0.9 },
-      { x: () => w * 0.88, y: () => h * 0.82 },
-    ];
-    let ventTimeout;
-    const scheduleVent = () => {
-      ventTimeout = setTimeout(() => {
-        const v = VENTS[Math.floor(Math.random() * VENTS.length)];
-        spawnAt(v.x(), v.y(), (Math.random() - 0.5) * 1.2, -1, 6);
-        scheduleVent();
-      }, 2600 + Math.random() * 2400);
-    };
-    scheduleVent();
-
-    let raf;
-    let last = performance.now();
-    const draw = (now) => {
-      const dt = Math.min(40, now - last);
-      last = now;
-      ctx.clearRect(0, 0, w, h);
-      ctx.globalCompositeOperation = 'lighter';
-
-      particles.forEach((p) => {
-        p.age += dt;
-        p.sway += p.swaySpeed * dt;
-        p.vy -= 0.00075 * dt;
-        p.vx += Math.sin(p.sway) * 0.006 * dt;
-        p.vx *= 0.992;
-        p.vy *= 0.992;
-        p.x += p.vx * (dt / 16);
-        p.y += p.vy * (dt / 16);
-
-        const t = p.age / p.maxAge;
-        const radius = p.r + Math.sqrt(p.age) * 0.9;
-        const fadeIn = Math.min(1, p.age / 160);
-        const fadeOut = Math.pow(Math.max(0, 1 - t), 1.4);
-        const alpha = 0.5 * fadeIn * fadeOut;
-
-        if (alpha > 0.012) {
-          const g = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, radius);
-          g.addColorStop(0, `hsla(${p.hue},90%,70%,${alpha})`);
-          g.addColorStop(1, `hsla(${p.hue},90%,60%,0)`);
-          ctx.fillStyle = g;
-          ctx.beginPath();
-          ctx.arc(p.x, p.y, radius, 0, Math.PI * 2);
-          ctx.fill();
-        }
-      });
-
-      particles = particles.filter((p) => p.age < p.maxAge);
-      ctx.globalCompositeOperation = 'source-over';
-      raf = requestAnimationFrame(draw);
-    };
-    raf = requestAnimationFrame(draw);
-
-    return () => {
-      cancelAnimationFrame(raf);
-      clearInterval(idleTimer);
-      clearTimeout(ventTimeout);
-      window.removeEventListener('resize', resize);
-      container.removeEventListener('mousemove', onMove);
-    };
-  }, [reduce, containerRef]);
-
-  if (reduce) return null;
-
-  return <canvas ref={canvasRef} className="pointer-events-none absolute inset-0 h-full w-full" style={{ mixBlendMode: 'screen' }} />;
-}
 
 /* ------------------------------------------------------------------ */
 /*  SERVICE SHOWCASE — one full-bleed deep-dive per service, alternating */
@@ -907,8 +868,6 @@ function ServiceShowcase({ service, index }) {
 export default function Page() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [activeTech, setActiveTech] = useState(TECH_DATA[0].id);
-  const [spot, setSpot] = useState({ x: 50, y: 30 });
   const containerRef = useRef(null);
   const heroRef = useRef(null);
 
@@ -929,17 +888,6 @@ export default function Page() {
   useEffect(() => {
     document.body.style.overflow = menuOpen ? 'hidden' : '';
   }, [menuOpen]);
-
-  useEffect(() => {
-    const el = heroRef.current;
-    if (!el) return;
-    const onMove = (e) => {
-      const rect = el.getBoundingClientRect();
-      setSpot({ x: ((e.clientX - rect.left) / rect.width) * 100, y: ((e.clientY - rect.top) / rect.height) * 100 });
-    };
-    el.addEventListener('mousemove', onMove);
-    return () => el.removeEventListener('mousemove', onMove);
-  }, []);
 
   return (
     <div ref={containerRef} className="relative overflow-hidden bg-[#040610] font-body text-white antialiased selection:bg-fuchsia-500/40 selection:text-white">
@@ -1058,11 +1006,11 @@ export default function Page() {
 
       {/* ---------------------------------------------------------- HERO */}
       <section id="home" ref={heroRef} className="relative flex min-h-[100svh] items-center overflow-hidden pt-24">
-        <SmokeCanvas containerRef={heroRef} />
-        <div
-          className="pointer-events-none absolute inset-0 opacity-70 transition-[background] duration-300"
-          style={{ background: `radial-gradient(600px circle at ${spot.x}% ${spot.y}%, rgba(59,130,246,0.14), transparent 60%)` }}
-        />
+        {/* Animated flowing sea wave background in different colors (right to left) */}
+        <SeaWaveBackground />
+
+        {/* Existing background color mask with transparency */}
+        <div className="pointer-events-none absolute inset-0 bg-[#040610]/55 backdrop-blur-[2px]" />
 
         <div className="relative mx-auto grid w-full max-w-7xl grid-cols-1 items-center gap-16 px-6 lg:grid-cols-[1.1fr_0.9fr]">
           <div>
@@ -1094,13 +1042,39 @@ export default function Page() {
               Let&rsquo;s dominate the market.
             </Reveal>
 
-            <Reveal className="mt-8 flex flex-wrap items-center gap-4">
-              <GlowButton href={WHATSAPP} icon="🚀">
-                Let&rsquo;s dominate
-              </GlowButton>
-              <a href="#work" className="inline-flex items-center gap-2 rounded-xl border border-white/15 px-6 py-3.5 font-mono text-xs uppercase tracking-[0.15em] text-white/80 transition-colors hover:border-cyan-300/60 hover:text-cyan-300">
-                View our work
-              </a>
+            <Reveal className="mt-8 grid grid-cols-2 items-center gap-3 sm:gap-6 max-w-xl">
+              {/* Left half: Stacked equal-size buttons */}
+              <div className="flex flex-col gap-2.5 w-full">
+                <GlowButton href={WHATSAPP} icon="🚀" className="w-full">
+                  Let&rsquo;s dominate
+                </GlowButton>
+                <a
+                  href="#work"
+                  className="inline-flex w-full items-center justify-center gap-1.5 rounded-xl border border-white/15 px-3 py-3 text-center font-mono text-[11px] sm:text-xs font-semibold uppercase tracking-[0.12em] sm:tracking-[0.15em] text-white/80 transition-colors hover:border-cyan-300/60 hover:text-cyan-300"
+                >
+                  View our work
+                </a>
+              </div>
+
+              {/* Right half: Live client ranking card */}
+              <motion.div
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.6, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                className="w-full"
+              >
+                <motion.div animate={{ y: [0, -4, 0] }} transition={{ repeat: Infinity, duration: 4, ease: 'easeInOut' }}>
+                  <MediaFrame
+                    src="/hero-seo-result.gif"
+                    chrome="browser"
+                    alt="Live client Google search ranking"
+                    label="Drop hero-seo-result.gif into /public"
+                  />
+                </motion.div>
+                <span className="mt-1 block text-center font-mono text-[8px] sm:text-[9px] uppercase tracking-[0.12em] text-white/40">
+                  Live client keyword ranking
+                </span>
+              </motion.div>
             </Reveal>
 
             <motion.div
@@ -1123,27 +1097,6 @@ export default function Page() {
 
           <Reveal className="relative mx-auto hidden lg:flex lg:items-center lg:justify-center">
             <NetworkGlobe />
-
-            {/* Floating proof card — drop hero-seo-result.gif into /public.
-                Shows a real client's keyword climbing to the top of Google. */}
-            <motion.div
-              initial={{ opacity: 0, y: 24 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 1.1, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-              className="absolute -bottom-8 -right-6 w-64"
-            >
-              <motion.div animate={{ y: [0, -8, 0] }} transition={{ repeat: Infinity, duration: 4, ease: 'easeInOut' }}>
-                <MediaFrame
-                  src="/hero-seo-result.gif"
-                  chrome="browser"
-                  alt="Live client Google search ranking"
-                  label="Drop hero-seo-result.gif into /public"
-                />
-              </motion.div>
-              <span className="mt-2 block text-center font-mono text-[9px] uppercase tracking-[0.15em] text-white/40">
-                Live client keyword ranking
-              </span>
-            </motion.div>
           </Reveal>
         </div>
 
@@ -1167,12 +1120,11 @@ export default function Page() {
             <Eyebrow>About</Eyebrow>
           </Reveal>
           <Reveal as="h2" className="mt-4 max-w-3xl font-display text-3xl font-bold leading-tight text-white sm:text-4xl">
-            A technology partner built for how your business actually operates.
+            A technology partner for your maximum Growth.
           </Reveal>
           <Reveal as="p" className="mt-5 max-w-2xl leading-relaxed text-white/55">
-            We&rsquo;re a small, senior team that treats every engagement like it&rsquo;s our own
-            product — from first-time founders shipping an MVP to institutions replacing paper
-            processes with software they&rsquo;ll actually use.
+            We&rsquo;re a dedicated expert team, that treats every engagement like it&rsquo;s our own
+            product ! From New founders to existing bussinesses
           </Reveal>
 
           <div className="mt-16 grid grid-cols-1 gap-5 sm:grid-cols-2">
@@ -1194,14 +1146,20 @@ export default function Page() {
               &ldquo;Great software is built by people who stay accountable after the invoice is
               paid.&rdquo;
             </p>
-            <p className="mt-4 font-mono text-xs uppercase tracking-[0.15em] text-cyan-300/80">— CosmicInnovationlab, Flight Log</p>
+            <p className="mt-4 font-mono text-xs uppercase tracking-[0.15em] text-cyan-300/80">— Team CosmicInnovationlab</p>
           </Reveal>
         </div>
       </section>
 
       {/* ---------------------------------------------------------- SERVICES (quick glance) */}
-      <section id="services" className="relative border-t border-white/10 py-28">
-        <div className="mx-auto max-w-7xl px-6">
+      <section id="services" className="relative overflow-hidden border-t border-white/10 py-28">
+        {/* Animated emerging radial gradient background */}
+        <div className="pointer-events-none absolute inset-0 emerge-bg opacity-50" />
+
+        {/* Existing background color mask with higher transparency */}
+        <div className="pointer-events-none absolute inset-0 bg-[#040610]/55 backdrop-blur-[2px]" />
+
+        <div className="relative z-10 mx-auto max-w-7xl px-6">
           <div className="flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
             <div>
               <Reveal>
@@ -1282,47 +1240,7 @@ export default function Page() {
         </div>
       </section>
 
-      {/* ---------------------------------------------------------- TECHNOLOGY */}
-      <section className="relative border-t border-white/10 py-28">
-        <div className="mx-auto max-w-7xl px-6">
-          <Reveal>
-            <Eyebrow>Stack</Eyebrow>
-          </Reveal>
-          <Reveal as="h2" className="mt-4 max-w-2xl font-display text-3xl font-bold leading-tight text-white sm:text-4xl">
-            We choose the right tool for the job, not the familiar one.
-          </Reveal>
 
-          <div className="mt-14 grid grid-cols-1 gap-8 lg:grid-cols-[280px_1fr]">
-            <div className="flex flex-wrap gap-2 lg:flex-col lg:gap-1.5">
-              {TECH_DATA.map((t) => (
-                <button
-                  key={t.id}
-                  onClick={() => setActiveTech(t.id)}
-                  className={`rounded-lg border px-4 py-3 text-left font-mono text-xs uppercase tracking-[0.1em] transition-colors ${activeTech === t.id ? 'border-cyan-300/60 bg-cyan-400/10 text-cyan-300' : 'border-white/10 text-white/50 hover:border-white/25 hover:text-white'
-                    }`}
-                >
-                  {t.title}
-                </button>
-              ))}
-            </div>
-
-            <div className="relative min-h-[260px] rounded-2xl border border-white/10 bg-white/[0.02] p-8">
-              <AnimatePresence mode="wait">
-                <motion.div key={activeTech} initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -12 }} transition={{ duration: 0.3 }}>
-                  <h3 className="font-display text-xl font-semibold text-white">{TECH_DATA.find((t) => t.id === activeTech)?.title}</h3>
-                  <div className="mt-6 flex flex-wrap gap-3">
-                    {TECH_DATA.find((t) => t.id === activeTech)?.tools.map((tool) => (
-                      <span key={tool} className="rounded-lg border border-white/10 bg-white/[0.03] px-3.5 py-2 font-mono text-xs text-white/60">
-                        {tool}
-                      </span>
-                    ))}
-                  </div>
-                </motion.div>
-              </AnimatePresence>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* ---------------------------------------------------------- PROCESS */}
       <section id="process" className="relative border-t border-white/10 py-28">
