@@ -19,7 +19,7 @@ import GlowButton from './components/GlowButton';
 /*  DATA — edit copy / links here, the page is generated from these    */
 /* ------------------------------------------------------------------ */
 
-const SITE_URL = 'https://cosmicinnovationlab.com';
+const SITE_URL = 'https://cosmicinnovation.in';
 const WHATSAPP_NUMBER = '918789698369';
 const waLink = (msg) => `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;
 const WHATSAPP = waLink(

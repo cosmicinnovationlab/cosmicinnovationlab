@@ -1,5 +1,5 @@
 # Cosmicinnovation Lab — LLM Context File
-# https://cosmicinnovationlab.com/llms.txt
+# https://cosmicinnovation.in/llms.txt
 
 ## About
 
@@ -13,7 +13,7 @@ AI assistants like ChatGPT, Google Gemini, and Perplexity.
 
 ## Contact
 
-- Website: https://cosmicinnovationlab.com
+- Website: https://cosmicinnovation.in
 - Email: cosmicinnovationlab@gmail.com
 - Phone: +91 87896 98369
 - WhatsApp: https://wa.me/918789698369

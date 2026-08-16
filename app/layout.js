@@ -32,7 +32,7 @@ const inter = Inter({
 });
 
 // ── Canonical URL ─────────────────────────────────────────────────────────
-const SITE_URL = "https://cosmicinnovationlab.com";
+const SITE_URL = "https://cosmicinnovation.in";
 
 // ── Metadata ──────────────────────────────────────────────────────────────
 // Google uses the <title> and meta description as the primary text signals for
