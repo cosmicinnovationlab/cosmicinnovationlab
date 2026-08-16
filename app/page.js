@@ -19,7 +19,7 @@ import GlowButton from './components/GlowButton';
 /*  DATA — edit copy / links here, the page is generated from these    */
 /* ------------------------------------------------------------------ */
 
-const SITE_URL = 'https://cosmicinnovationlab.com';
+const SITE_URL = 'https://cosmicinnovationlab.in';
 const WHATSAPP_NUMBER = '918789698369';
 const waLink = (msg) => `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;
 const WHATSAPP = waLink(
@@ -245,7 +245,7 @@ const FAQS = [
   },
   {
     q: 'Why should a tier-2 or tier-3 city business choose Cosmicinnovation Lab?',
-    a: 'Cosmicinnovation Lab is purpose-built for the tier-2 and tier-3 India market — meaning our websites are fully customized and siteoptimised for low-bandwidth connections, mobile-first usage patterns, regional payment rails (UPI, COD), and local language search intent, unlike generic agencies that apply metropolitan templates to small-city businesses.',
+    a: 'Cosmicinnovation Lab is purpose-built for the tier-2 and tier-3 India market — meaning our websites are fully customized and optimised for low-bandwidth connections, mobile-first usage patterns, regional payment rails (UPI, COD), and local language search intent, unlike generic agencies that apply metropolitan templates to small-city businesses.',
   },
 ];
 

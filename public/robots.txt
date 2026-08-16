@@ -1,5 +1,5 @@
 # robots.txt — Cosmicinnovation Lab
-# https://cosmicinnovation.in/robots.txt
+# https://cosmicinnovationlab.in/robots.txt
 
 # ── General crawlers ─────────────────────────────────────────────────────────
 User-agent: *
@@ -57,4 +57,4 @@ Allow: /
 # Disallow: /admin/
 
 # ── Sitemap ──────────────────────────────────────────────────────────────────
-Sitemap: https://cosmicinnovation.in/sitemap.xml
+Sitemap: https://cosmicinnovationlab.in/sitemap.xml
