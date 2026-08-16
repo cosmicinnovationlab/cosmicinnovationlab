@@ -1,30 +1,91 @@
 @import "tailwindcss";
 
+/* ── CSS Custom Properties ─────────────────────────────────────────────── */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #040610;
+  --foreground: #ffffff;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
+/* ── Body defaults ──────────────────────────────────────────────────────── */
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
 }
 
+html {
+  scroll-behavior: smooth;
+  background: #040610;
+}
+
+section[id],
+div[id^='service-'] {
+  scroll-margin-top: 88px;
+}
+
+/* ── Font utilities ─────────────────────────────────────────────────────── */
+.font-display {
+  font-family: var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif;
+}
+.font-brand {
+  font-family: var(--font-playfair-display), Georgia, serif;
+}
+.font-body {
+  font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+}
+/* Dropped IBM Plex Mono — replaced with system monospace stack (saves 1 font network request) */
+.font-mono {
+  font-family: ui-monospace, 'SF Mono', 'Cascadia Code', 'Consolas', monospace;
+}
+
+/* ── Text gradient ──────────────────────────────────────────────────────── */
+.text-gradient {
+  background-image: linear-gradient(90deg, #22d3ee 0%, #3b82f6 45%, #a855f7 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* ── Selection ──────────────────────────────────────────────────────────── */
+::selection {
+  background: #a855f7;
+  color: #fff;
+}
+
+/* ── Shake animation (defined once here — page.js inline style removed) ─── */
+@keyframes shake {
+  0%, 85%, 100% { transform: translateX(0); }
+  88%, 94%      { transform: translateX(-3px); }
+  91%, 97%      { transform: translateX(3px); }
+}
+.animate-shake-custom {
+  animation: shake 2s infinite ease-in-out;
+  display: inline-block;
+}
+
+/* ── Float (hero media frame) ───────────────────────────────────────────── */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-8px); }
+}
+.animate-float {
+  animation: float 5s ease-in-out infinite;
+  /* Promote to own GPU layer — avoids triggering layout on surrounding elements */
+  will-change: transform;
+}
+
+/* ── Slow bounce (scroll indicator) ────────────────────────────────────── */
+@keyframes bounce-slow {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(6px); }
+}
+.animate-bounce-slow {
+  animation: bounce-slow 1.8s ease-in-out infinite;
+  will-change: transform;
+}
+
+/* ── Emerge radial gradient (services section background) ───────────────── */
+/* Uses CSS Houdini @property for smooth animation of a custom length */
 @property --o {
   syntax: '<length>';
   inherits: false;
@@ -32,9 +93,7 @@ body {
 }
 
 @keyframes emerge {
-  to {
-    --o: calc(var(--s) * 7);
-  }
+  to { --o: calc(var(--s) * 7); }
 }
 
 .emerge-bg {
@@ -48,7 +107,6 @@ body {
   --p5: calc(var(--o) + var(--s) * 5);
   --p6: calc(var(--o) + var(--s) * 6);
   --p7: calc(var(--o) + var(--s) * 7);
-
   background-image: repeating-radial-gradient(
     circle,
     #f0a6b2 var(--p0) var(--p1),
@@ -60,138 +118,90 @@ body {
     #ee4b47 var(--p6) var(--p7)
   );
   animation: emerge 3s linear infinite;
+  /* Isolate compositing — prevents the animation from dirtying the whole page stacking context */
+  isolation: isolate;
+  contain: layout style;
 }
 
-@keyframes seaWaveRightToLeft {
-  0% {
-    transform: translateX(0%);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
+/* ── Sea wave animations (hero background) ──────────────────────────────── */
+/* Reduced from 6 simultaneous wave layers to 3 — eliminates ~50% GPU overdraw.
+   All three use translateX() only (compositor-only property — no layout triggers). */
+
+@keyframes seaWaveRTL {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
 
 @keyframes seaGradientShift {
-  0% {
-    background-position: 100% 50%;
-  }
-  50% {
-    background-position: 0% 50%;
-  }
-  100% {
-    background-position: 100% 50%;
-  }
+  0%   { background-position: 100% 50%; }
+  50%  { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
 }
 
 .sea-gradient-flow {
   background: linear-gradient(
     270deg,
-    #ff758c,
-    #ffb199,
-    #ffbd39,
-    #38ef7d,
-    #00f2fe,
-    #0072ff,
-    #7f00ff,
-    #f107a3,
-    #ff758c
+    #ff758c, #ffb199, #ffbd39, #38ef7d,
+    #00f2fe, #0072ff, #7f00ff, #f107a3, #ff758c
   );
   background-size: 400% 400%;
-  animation: seaGradientShift 8s ease infinite;
+  animation: seaGradientShift 10s ease infinite;
+  will-change: background-position;
 }
 
+/* Wave 1 — Cyan/Blue fill layer (was wave-1, 8s) */
 .animate-sea-wave-1 {
-  animation: seaWaveRightToLeft 8s linear infinite;
+  animation: seaWaveRTL 8s linear infinite;
+  will-change: transform;
+  contain: layout style;
 }
 
+/* Wave 2 — Coral/Pink fill layer (was wave-2, 6s) */
 .animate-sea-wave-2 {
-  animation: seaWaveRightToLeft 6s linear infinite;
+  animation: seaWaveRTL 6s linear infinite;
+  will-change: transform;
+  contain: layout style;
 }
 
+/* Wave 3 — Glowing line (was wave-3, 10s) */
 .animate-sea-wave-3 {
-  animation: seaWaveRightToLeft 10s linear infinite;
+  animation: seaWaveRTL 10s linear infinite;
+  will-change: transform;
+  contain: layout style;
 }
 
-.animate-sea-wave-4 {
-  animation: seaWaveRightToLeft 7s linear infinite;
-}
-
-.animate-sea-wave-5 {
-  animation: seaWaveRightToLeft 9s linear infinite;
-}
-
-.animate-sea-wave-6 {
-  animation: seaWaveRightToLeft 5s linear infinite;
-}
-
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-8px); }
-}
-
-.animate-float {
-  animation: float 5s ease-in-out infinite;
-}
-
-@keyframes bounce-slow {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(6px); }
-}
-
-.animate-bounce-slow {
-  animation: bounce-slow 1.8s ease-in-out infinite;
-}
-
-html {
-  scroll-behavior: smooth;
-  background: #040610;
-}
-section[id],
-div[id^='service-'] {
-  scroll-margin-top: 88px;
-}
+/* ── Reduced-motion: disable ALL decorative animations ──────────────────── */
+/* This satisfies WCAG 2.1 AA, improves INP for users with motor impairments,
+   and acts as a CPU/GPU safety valve on low-powered devices. */
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
   }
-}
-::selection {
-  background: #a855f7;
-  color: #fff;
-}
-.font-display {
-  font-family: var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif;
-}
-.font-brand {
-  font-family: var(--font-playfair-display), serif;
-}
-.font-body {
-  font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
-}
-.font-mono {
-  font-family: var(--font-ibm-plex-mono), ui-monospace, monospace;
-}
-.text-gradient {
-  background-image: linear-gradient(90deg, #22d3ee 0%, #3b82f6 45%, #a855f7 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-
-@keyframes shake {
-  0%, 100%, 85% {
-    transform: translateX(0);
-  }
-  88%, 94% {
-    transform: translateX(-3px);
-  }
-  91%, 97% {
-    transform: translateX(3px);
+  .animate-float,
+  .animate-bounce-slow,
+  .animate-shake-custom,
+  .animate-sea-wave-1,
+  .animate-sea-wave-2,
+  .animate-sea-wave-3,
+  .sea-gradient-flow,
+  .emerge-bg,
+  .scan-line {
+    animation: none !important;
+    will-change: auto;
   }
 }
 
-.animate-shake {
-  animation: shake 2s infinite ease-in-out;
+/* ── Scan line (MediaFrame decoration) ──────────────────────────────────── */
+/* Pure CSS replacement for the Framer Motion infinite x-translate animation.
+   Running on the compositor thread = zero JS/layout cost. */
+@keyframes scan {
+  0%   { transform: translateX(-100%); opacity: 0; }
+  10%  { opacity: 1; }
+  90%  { opacity: 1; }
+  100% { transform: translateX(400%); opacity: 0; }
 }
-
-
+.scan-line {
+  background: linear-gradient(90deg, transparent, rgba(34, 211, 238, 0.7), transparent);
+  animation: scan 3.4s linear infinite;
+  will-change: transform;
+}

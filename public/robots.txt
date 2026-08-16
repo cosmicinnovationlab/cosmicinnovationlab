@@ -1,0 +1,60 @@
+# robots.txt — Cosmicinnovation Lab
+# https://cosmicinnovationlab.com/robots.txt
+
+# ── General crawlers ─────────────────────────────────────────────────────────
+User-agent: *
+Allow: /
+
+# ── Google ───────────────────────────────────────────────────────────────────
+User-agent: Googlebot
+Allow: /
+
+# Allow Google's AI training crawler (needed for AI Overviews / AI Mode)
+User-agent: Google-Extended
+Allow: /
+
+# ── Bing / Microsoft ─────────────────────────────────────────────────────────
+User-agent: Bingbot
+Allow: /
+
+User-agent: msnbot
+Allow: /
+
+# ── OpenAI / ChatGPT ─────────────────────────────────────────────────────────
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+# ── Anthropic / Claude ───────────────────────────────────────────────────────
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+# ── Perplexity ───────────────────────────────────────────────────────────────
+User-agent: PerplexityBot
+Allow: /
+
+# ── Common Crawl (used by many AI training datasets) ─────────────────────────
+User-agent: CCBot
+Allow: /
+
+# ── Meta / Facebook ──────────────────────────────────────────────────────────
+User-agent: FacebookBot
+Allow: /
+
+# ── Apple ────────────────────────────────────────────────────────────────────
+User-agent: Applebot
+Allow: /
+
+# ── Block only admin / internal paths (none exist yet, kept for future use) ──
+# Disallow: /admin/
+
+# ── Sitemap ──────────────────────────────────────────────────────────────────
+Sitemap: https://cosmicinnovationlab.com/sitemap.xml

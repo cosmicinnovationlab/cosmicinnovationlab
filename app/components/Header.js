@@ -8,7 +8,7 @@ import GlowButton from './GlowButton';
 const WHATSAPP_NUMBER = '918789698369';
 const waLink = (msg) => `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;
 const WHATSAPP = waLink(
-  'Hello, COSMIC Innovation! I would like to enquire about a software development requirement. Could you please provide more details?'
+  'Hello, Cosmicinnovation Lab! I would like to enquire about your services. Could you please provide more details?'
 );
 
 const NAV_LINKS = [
@@ -20,13 +20,18 @@ const NAV_LINKS = [
   { label: 'Contact', href: '#contact' },
 ];
 
+// Logo component — explicit width/height prevents CLS (Cumulative Layout Shift).
+// Without these, the browser doesn't know how much space to reserve until the
+// image loads, causing surrounding content to jump.
 function CosmicMark({ size = 44, className = '' }) {
   return (
     <img
       src="/nonacadlogo.png"
-      alt="Cosmic Innovation Lab Logo"
+      alt="Cosmicinnovation Lab Logo"
+      width={size}
+      height={size}
       className={`shrink-0 object-contain ${className}`}
-      style={{ height: size, width: 'auto', maxHeight: size }}
+      style={{ maxHeight: size, width: 'auto' }}
     />
   );
 }
@@ -47,21 +52,39 @@ export default function Header() {
   }, [menuOpen]);
 
   return (
-    <header className={`fixed inset-x-0 top-0 z-50 transition-colors duration-300 ${scrolled ? 'border-b border-white/10 bg-[#040610]/80 backdrop-blur-md' : 'bg-transparent'}`}>
-      <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-3.5">
-        <a href="#home" className="flex items-center gap-3">
+    <header
+      className={`fixed inset-x-0 top-0 z-50 transition-colors duration-300 ${
+        scrolled ? 'border-b border-white/10 bg-[#040610]/80 backdrop-blur-md' : 'bg-transparent'
+      }`}
+    >
+      <nav
+        className="mx-auto flex max-w-7xl items-center justify-between px-6 py-3.5"
+        aria-label="Main navigation"
+      >
+        {/* Brand logo link — aria-label identifies the brand for screen readers and SEO */}
+        <a
+          href="#home"
+          className="flex items-center gap-3"
+          aria-label="Cosmicinnovation Lab — Home"
+        >
           <CosmicMark size={38} />
           <span>
             <span className="block bg-gradient-to-r from-cyan-300 via-blue-300 to-fuchsia-300 bg-clip-text font-brand text-lg italic leading-none text-transparent">
-              CosmicInnovationlab
+              Cosmicinnovation Lab
             </span>
-            <span className="mt-1 hidden font-mono text-[9px] tracking-[0.3em] text-white/50 sm:block">INNOVATE &bull; BUILD &bull; GROW</span>
+            <span className="mt-1 hidden font-mono text-[9px] tracking-[0.3em] text-white/50 sm:block">
+              INNOVATE &bull; BUILD &bull; GROW
+            </span>
           </span>
         </a>
 
         <div className="hidden items-center gap-8 md:flex">
           {NAV_LINKS.map((l) => (
-            <a key={l.href} href={l.href} className="font-mono text-xs uppercase tracking-[0.15em] text-white/60 transition-colors hover:text-cyan-300">
+            <a
+              key={l.href}
+              href={l.href}
+              className="font-mono text-xs uppercase tracking-[0.15em] text-white/60 transition-colors hover:text-cyan-300"
+            >
               {l.label}
             </a>
           ))}
@@ -70,7 +93,13 @@ export default function Header() {
           </GlowButton>
         </div>
 
-        <button onClick={() => setMenuOpen((v) => !v)} className="text-white md:hidden" aria-label="Toggle menu" aria-expanded={menuOpen}>
+        <button
+          onClick={() => setMenuOpen((v) => !v)}
+          className="text-white md:hidden"
+          aria-label="Toggle navigation menu"
+          aria-expanded={menuOpen}
+          aria-controls="mobile-menu"
+        >
           {menuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
       </nav>
@@ -78,6 +107,7 @@ export default function Header() {
       <AnimatePresence>
         {menuOpen && (
           <motion.div
+            id="mobile-menu"
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
@@ -86,7 +116,12 @@ export default function Header() {
           >
             <div className="flex flex-col gap-1 px-6 py-6">
               {NAV_LINKS.map((l) => (
-                <a key={l.href} href={l.href} onClick={() => setMenuOpen(false)} className="border-b border-white/10 py-3 font-mono text-sm uppercase tracking-[0.15em] text-white">
+                <a
+                  key={l.href}
+                  href={l.href}
+                  onClick={() => setMenuOpen(false)}
+                  className="border-b border-white/10 py-3 font-mono text-sm uppercase tracking-[0.15em] text-white"
+                >
                   {l.label}
                 </a>
               ))}

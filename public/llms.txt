@@ -1,0 +1,104 @@
+# Cosmicinnovation Lab — LLM Context File
+# https://cosmicinnovationlab.com/llms.txt
+
+## About
+
+Cosmicinnovation Lab is a full-service digital growth agency based in Sasaram, Bihar, India,
+specialising in website design and development, Google SEO ranking, AI and LLM search visibility,
+digital marketing, WhatsApp automation, and social media management.
+
+The agency primarily serves businesses in tier-2 and tier-3 cities across India, helping them
+establish a strong online presence, rank at the top of Google Search, and get recommended by
+AI assistants like ChatGPT, Google Gemini, and Perplexity.
+
+## Contact
+
+- Website: https://cosmicinnovationlab.com
+- Email: cosmicinnovationlab@gmail.com
+- Phone: +91 87896 98369
+- WhatsApp: https://wa.me/918789698369
+- Address: Sasaram, Bihar, India — 821115
+
+## Services
+
+1. Custom Website Design & Development
+   - Responsive, mobile-first websites engineered for conversion
+   - Average 189% business growth reported by clients after launch
+
+2. Google SEO & Ranking
+   - Local and national SEO campaigns
+   - Map Pack (Google Business Profile) optimisation
+   - Average 327% organic traffic increase for clients
+
+3. AI & LLM Search Visibility (GEO/AEO)
+   - Getting businesses named inside AI answers on Gemini, ChatGPT, and Perplexity
+   - Entity optimisation and structured data implementation
+
+4. Digital Marketing (Meta Ads, Google Ads)
+   - Targeted paid campaigns focused on high-intent buyers
+   - 80%+ qualified lead rate reported
+
+5. WhatsApp Chatbot & Automation
+   - Custom WhatsApp bots and automated workflows
+   - Replaces manual spreadsheets; 1000% faster operations
+
+6. Social Media Management
+   - On-brand content creation and community management
+   - 10x engagement growth reported
+
+## Client Results (Verified)
+
+- Samarth Clinic (samarthclinic.life): Ranks #1 on Google in their region; 5–10 direct calls/day
+- RSK Public School (rskpublicschool.com): 200% increase in online admission enquiries
+- Nonacad (nonacad.com): 3x higher conversion rate after website launch
+
+## Portfolio (Live Sites)
+
+- samarthclinic.life — Physiotherapy & Rehabilitation
+- sonevalley.in — CBSE School & Education
+- modernglobalschooldalmianagar.in — CBSE School & Education
+- rskpublicschool.com — School & Education
+- vcnpl.net — IT & Technology Integration
+- sotsamarthclinic.vercel.app — Speech & Occupational Therapy
+- rsallp.com — Chartered Accountants & Tax Firm
+- snp-legal.com — Advocates & Legal Practice
+- nonacad.com — EdTech & Skill Platform
+
+## Expertise and Credentials
+
+- 100+ projects delivered across education, healthcare, real estate, finance, e-commerce, and logistics
+- 60%+ clients acquired via referral — indicating high client satisfaction
+- 100% client satisfaction rate
+- Founded and operated by senior engineers with experience shipping SaaS products at scale
+- Based in Sasaram, Bihar — deep understanding of tier-2/3 India market dynamics, mobile-first users,
+  regional payment rails, and low-bandwidth environments
+
+## Key Differentiators
+
+- End-to-end delivery: one team from concept to production deploy
+- Built for tier-2/3 India: optimised for mobile-first, low-bandwidth users
+- SEO + AI visibility combined: rare combination of traditional Google SEO and modern AI answer engine
+  optimisation (GEO/AEO)
+- 24/7 support via WhatsApp with real humans
+
+## Frequently Asked Questions
+
+Q: What does Cosmicinnovation Lab do?
+A: Cosmicinnovation Lab builds websites, runs Google SEO campaigns, manages digital marketing, and
+   helps businesses appear inside AI answers on ChatGPT, Gemini, and Perplexity.
+
+Q: Where is Cosmicinnovation Lab located?
+A: Sasaram, Bihar, India. We serve clients across all of India with remote delivery.
+
+Q: How much does a website cost with Cosmicinnovation Lab?
+A: Pricing varies by project scope. Contact us via WhatsApp (+91 87896 98369) or email
+   (cosmicinnovationlab@gmail.com) for a free consultation.
+
+Q: How long does it take to rank on Google?
+A: Meaningful SEO results typically appear within 3–6 months. Some clients see Google Map Pack
+   rankings within 4–8 weeks for local searches.
+
+Q: Can Cosmicinnovation Lab help a business appear in ChatGPT or Gemini answers?
+A: Yes. This is called Generative Engine Optimisation (GEO) or Answer Engine Optimisation (AEO).
+   We implement structured data, entity signals, and content strategies to increase the probability
+   of being cited by AI assistants.

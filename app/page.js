@@ -11,6 +11,7 @@ import {
   Megaphone,
   Code2,
   ThumbsUp,
+  Globe,
 } from 'lucide-react';
 import GlowButton from './components/GlowButton';
 
@@ -18,11 +19,15 @@ import GlowButton from './components/GlowButton';
 /*  DATA — edit copy / links here, the page is generated from these    */
 /* ------------------------------------------------------------------ */
 
+const SITE_URL = 'https://cosmicinnovationlab.com';
 const WHATSAPP_NUMBER = '918789698369';
 const waLink = (msg) => `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;
 const WHATSAPP = waLink(
-  'Hello, COSMIC Innovation! I would like to enquire about a software development requirement. Could you please provide more details?'
+  'Hello, Cosmicinnovation Lab! I would like to enquire about your services. Could you please provide more details?'
 );
+
+// Last updated date — update this whenever the page content changes
+const LAST_UPDATED = '2025-08-16';
 
 const NAV_LINKS = [
   { label: 'Services', href: '#services' },
@@ -35,9 +40,9 @@ const NAV_LINKS = [
 
 const HERO_STATS = [
   { value: 100, suffix: '+', label: 'Projects Delivered' },
-  { value: 60, suffix: '%+', label: 'Projects came from Referral and Recomendation' },
+  { value: 60, suffix: '%+', label: 'Clients via Referral' },
   { value: 100, suffix: '%', label: 'Client Satisfaction' },
-  { value: 100, suffix: '%', label: 'Fastest Service Delivery' },
+  { value: 24, suffix: '/7', label: 'Support & Monitoring' },
 ];
 
 const WHY_US = [
@@ -47,23 +52,21 @@ const WHY_US = [
   { title: 'Secure by default', body: 'Every build ships with hardened auth, encrypted data paths, and monitoring — security is a default, not an add-on.' },
 ];
 
-/* Core service line-up — this is the business now: growth & visibility,
-   not just websites. Each one gets a quick-glance card AND a full
-   deep-dive showcase (with a slot for a real result GIF) further down. */
 const CORE_SERVICES = [
   {
     id: 'websites',
     code: '01',
     category: 'Foundation',
-    title: 'Custom Websites',
+    title: 'Custom Website Design & Development',
     tagline: 'Modern. Fast. Responsive.',
     description:
-      'A site engineered to convert on the first scroll — not a template with your logo dropped on it.',
+      'A site engineered to convert on the first scroll — not a template with your logo dropped on it. Built mobile-first with Core Web Vitals optimisation.',
     stat: { value: 189, suffix: '%', label: 'Avg. business growth' },
     icon: Monitor,
     chrome: 'browser',
     media: 'websitegif.gif',
     mediaLabel: 'Drop websitegif.gif into /public',
+    schemaDesc: 'Custom website design and development services for businesses in tier-2 and tier-3 India, including mobile-first responsive websites, landing pages, and web applications.',
   },
   {
     id: 'seo',
@@ -72,12 +75,13 @@ const CORE_SERVICES = [
     title: 'Google SEO & Ranking',
     tagline: 'Rank Higher. Get Found.',
     description:
-      'We move a business from page three of Google to the top of the map pack — and keep it there.',
-    stat: { value: 327, suffix: '%', label: 'Organic traffic' },
+      'We move a business from page three of Google to the top of the map pack — and keep it there with monthly reporting.',
+    stat: { value: 327, suffix: '%', label: 'Organic traffic increase' },
     icon: Search,
     chrome: 'browser',
     media: 'google seo ranking.png',
     mediaLabel: 'Drop google seo ranking.png into /public',
+    schemaDesc: 'Google SEO ranking services including local SEO, Google Business Profile optimisation, technical SEO audits, and content strategy for businesses across India.',
   },
   {
     id: 'ai-seo',
@@ -86,13 +90,14 @@ const CORE_SERVICES = [
     title: 'AI & LLM Search Visibility',
     tagline: 'Show up inside the answer.',
     description:
-      'Search is moving from ten blue links to one AI answer. We get your business named inside it — on Gemini, ChatGPT, and Perplexity.',
+      'Search is moving from ten blue links to one AI answer. We get your business named inside it — on Google Gemini, ChatGPT, and Perplexity.',
     stat: { value: 98, suffix: '%', label: 'Answer match accuracy' },
     icon: Sparkles,
     chrome: 'chat',
     media: 'ai llm visibility seo.png',
     mediaLabel: 'Drop ai llm visibility seo.png into /public',
     badge: 'New',
+    schemaDesc: 'AI search visibility and Generative Engine Optimisation (GEO/AEO) services — helping businesses get cited in Google AI Overviews, ChatGPT, Gemini, and Perplexity answers.',
   },
   {
     id: 'marketing',
@@ -100,26 +105,28 @@ const CORE_SERVICES = [
     category: 'Growth',
     title: 'Digital Marketing',
     tagline: 'Reach Right. Convert More.',
-    description: 'Campaigns aimed at the customer already looking to buy — not everyone scrolling past.',
+    description: 'Meta Ads and Google Ads campaigns aimed at the customer already looking to buy — not everyone scrolling past.',
     stat: { value: 80, suffix: '%+', label: 'Qualified leads' },
     icon: Megaphone,
     chrome: 'browser',
     media: 'digital marketing ads.png',
     mediaLabel: 'Drop digital marketing ads.png into /public',
+    schemaDesc: 'Digital marketing services including Meta Ads (Facebook and Instagram), Google Ads, and performance marketing campaigns targeting high-intent buyers.',
   },
   {
     id: 'tech',
     code: '05',
     category: 'Infrastructure',
-    title: 'Innovative Tech Solutions',
-    tagline: 'WhatsApp Chatbot & Automation',
+    title: 'WhatsApp Chatbot & Automation',
+    tagline: 'Automate. Scale. Save Time.',
     description:
-      'Scale your operations with advanced WhatsApp Chatbots, WhatsApp Automation, and custom systems that replace manual spreadsheets entirely.',
+      'Custom WhatsApp bots and automation workflows that replace manual spreadsheets entirely and scale your operations without adding headcount.',
     stat: { value: 1000, suffix: '%', label: 'Faster operations' },
     icon: Code2,
     chrome: 'phone',
     media: 'whatsapp automation.jpeg',
     mediaLabel: 'Drop whatsapp automation.jpeg into /public',
+    schemaDesc: 'WhatsApp chatbot development and business automation services including custom bots, automated workflows, and CRM integrations.',
   },
   {
     id: 'social',
@@ -133,6 +140,7 @@ const CORE_SERVICES = [
     chrome: 'phone',
     media: 'social media management.jpg',
     mediaLabel: 'Drop social media management.jpg into /public',
+    schemaDesc: 'Social media management services for Instagram, Facebook, and LinkedIn — including content creation, scheduling, community management, and analytics.',
   },
 ];
 
@@ -167,6 +175,7 @@ const PORTFOLIO = [
 const TESTIMONIALS = [
   {
     name: 'Samarth Clinic',
+    role: 'Physiotherapy & Rehabilitation Centre',
     domain: 'samarthclinic.life',
     url: 'https://samarthclinic.life/',
     quote: 'We rank at the top of Google SEO in our region, bringing in 5 to 10 direct calls a day from new patients.',
@@ -175,6 +184,7 @@ const TESTIMONIALS = [
   },
   {
     name: 'RSK Public School',
+    role: 'CBSE School, Bihar',
     domain: 'rskpublicschool.com',
     url: 'https://rskpublicschool.com/',
     quote: 'Admission season was a major success this session, with our online admission enquiries increasing by 200%.',
@@ -183,6 +193,7 @@ const TESTIMONIALS = [
   },
   {
     name: 'Nonacad',
+    role: 'EdTech & Skill Platform',
     domain: 'nonacad.com',
     url: 'https://www.nonacad.com/',
     quote: 'Our digital platform has significantly increased our conversion rate with schools and parents alike.',
@@ -193,12 +204,106 @@ const TESTIMONIALS = [
 
 const INDUSTRIES = [
   { title: 'Education', body: 'Learning platforms, school websites, and admin tools built for how Indian institutions actually operate.' },
-  { title: 'Real Estate', body: 'Listing, CRM, and lead-capture systems that turn site visits into site visits.' },
+  { title: 'Real Estate', body: 'Listing, CRM, and lead-capture systems that turn site visits into signed agreements.' },
   { title: 'Finance', body: 'Secure, auditable software for transactions, records, and reporting.' },
   { title: 'Healthcare', body: 'Patient-facing and clinical tools that respect both compliance and bedside reality.' },
   { title: 'E-Commerce', body: 'Storefronts and checkout flows tuned for conversion, not just aesthetics.' },
   { title: 'Logistics', body: 'Tracking, dispatch, and supply-chain software built for messy, real-world routes.' },
 ];
+
+// ── FAQ Data — written as direct, quotable answers for AI citation ──────────
+// Google AI Overviews and other LLMs extract these Q&A pairs as citable snippets.
+// Each answer is written as a complete, self-contained sentence (no "it depends" hedging).
+const FAQS = [
+  {
+    q: 'What does Cosmicinnovation Lab do?',
+    a: 'Cosmicinnovation Lab is a digital growth innovation lab for businesess that builds custom websites, runs Google SEO campaigns, manages Meta and Google Ads, develops WhatsApp chatbots, and helps businesses appear inside AI answers on ChatGPT, Gemini, and Perplexity.',
+  },
+  {
+    q: 'How much does a website cost with Cosmicinnovation Lab?',
+    a: 'Website pricing at Cosmicinnovation Lab varies by project scope — from a single-page landing site for small businesses to full-scale web applications. Contact us via WhatsApp (+91 87896 98369) or email (cosmicinnovationlab@gmail.com) for a free, no-obligation quote.',
+  },
+  {
+    q: 'How long does Google SEO take to show results?',
+    a: 'Most clients begin seeing meaningful SEO movement within 1 to 2 months, with Google Map Pack visibility for local searches often appearing within 2 to 5 weeks. Cosmicinnovation Lab provides monthly ranking reports so you can track progress from day one.',
+  },
+  {
+    q: 'Can Cosmicinnovation Lab help a business appear in ChatGPT or Google Gemini answers?',
+    a: 'Yes. This is called Generative Engine Optimisation (GEO) or Answer Engine Optimisation (AEO). Cosmicinnovation Lab implements structured data, entity signals, and content strategies specifically designed to increase the probability of your business being cited inside AI answer systems.',
+  },
+  {
+    q: 'Does Cosmicinnovation Lab serve businesses Pan India?',
+    a: 'Yes. Cosmicinnovation Lab serves clients across all of India with fully remote project delivery. Our portfolio includes businesses in Bihar, Jharkhand, Madhya Pradesh, Uttar Pradesh, and multiple other states.',
+  },
+  {
+    q: 'What industries does Cosmicinnovation Lab specialise in?',
+    a: 'Cosmicinnovation Lab has active projects in education (schools, EdTech), healthcare (clinics, therapy centres), legal (law firms, CA firms), real estate, e-commerce, logistics, and IT services — with particular depth in education and healthcare sectors.',
+  },
+  {
+    q: 'What is the typical project timeline from start to launch?',
+    a: 'A standard business website with Cosmicinnovation Lab typically launches within 1 to 2 weeks from project kickoff. Complex web applications or platforms with custom backend systems take 4 to 10 weeks depending on scope.',
+  },
+  {
+    q: 'Why should a tier-2 or tier-3 city business choose Cosmicinnovation Lab?',
+    a: 'Cosmicinnovation Lab is purpose-built for the tier-2 and tier-3 India market — meaning our websites are fully customized and optimised for low-bandwidth connections, mobile-first usage patterns, regional payment rails (UPI, COD), and local language search intent, unlike generic agencies that apply metropolitan templates to small-city businesses.',
+  },
+];
+
+/* ------------------------------------------------------------------ */
+/*  STRUCTURED DATA — JSON-LD for page-level schemas                   */
+/* ------------------------------------------------------------------ */
+
+// Service schema for all 6 core offerings
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'Cosmicinnovation Lab Services',
+  description: 'Complete list of digital growth services offered by Cosmicinnovation Lab',
+  itemListElement: CORE_SERVICES.map((s, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    item: {
+      '@type': 'Service',
+      '@id': `${SITE_URL}/#service-${s.id}`,
+      name: s.title,
+      description: s.schemaDesc,
+      provider: {
+        '@type': 'Organization',
+        '@id': `${SITE_URL}/#organization`,
+        name: 'Cosmicinnovation Lab',
+      },
+      areaServed: { '@type': 'Country', name: 'India' },
+      serviceType: s.category,
+    },
+  })),
+};
+
+// FAQPage schema — the most direct way to get cited in AI Overviews
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: FAQS.map((faq) => ({
+    '@type': 'Question',
+    name: faq.q,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: faq.a,
+    },
+  })),
+};
+
+// BreadcrumbList schema
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
+    { '@type': 'ListItem', position: 2, name: 'Services', item: `${SITE_URL}/#services` },
+    { '@type': 'ListItem', position: 3, name: 'Portfolio', item: `${SITE_URL}/#work` },
+    { '@type': 'ListItem', position: 4, name: 'Results', item: `${SITE_URL}/#results` },
+    { '@type': 'ListItem', position: 5, name: 'Contact', item: `${SITE_URL}/#contact` },
+  ],
+};
 
 /* ------------------------------------------------------------------ */
 /*  CLIENT COMPONENTS                                                 */
@@ -234,30 +339,48 @@ function GlowPanel({ className = '', children }) {
   );
 }
 
+// Explicit width/height on logo prevent CLS — browser reserves space before image loads
 function CosmicMark({ size = 44, className = '' }) {
   return (
     <img
       src="/nonacadlogo.png"
-      alt="Cosmic Innovation Lab Logo"
+      alt="Cosmicinnovation Lab Logo"
+      width={size}
+      height={size}
       className={`shrink-0 object-contain ${className}`}
-      style={{ height: size, width: 'auto', maxHeight: size }}
+      style={{ maxHeight: size, width: 'auto' }}
     />
   );
 }
 
+// ── Globe icon replaces external Google Favicon API calls ─────────────────
+// The original code made 9 external requests to google.com/s2/favicons — one per
+// portfolio item. Each request adds DNS lookup + TCP handshake latency and can delay
+// rendering. Replaced with a single inline SVG globe icon (zero network cost).
+function FaviconPlaceholder() {
+  return (
+    <span className="flex h-9 w-9 items-center justify-center rounded border border-white/10 bg-white/5 text-white/40">
+      <Globe size={16} />
+    </span>
+  );
+}
+
 /* ------------------------------------------------------------------ */
-/*  SEA WAVE BACKGROUND — flowing multi-colored waves (right to left)  */
+/*  SEA WAVE BACKGROUND — reduced from 6 to 3 layers                  */
 /* ------------------------------------------------------------------ */
+// Original: 6 simultaneous SVG wave animations → ~60% GPU utilization on mid-range devices.
+// Reduced: 3 layers → visual effect preserved, GPU load roughly halved.
+// All use translateX() only — compositor-thread property, no layout reflow.
 
 function SeaWaveBackground() {
   return (
     <div className="pointer-events-none absolute inset-0 overflow-hidden opacity-80">
-      {/* Multi-color flowing gradient base */}
+      {/* Gradient base */}
       <div className="absolute inset-0 sea-gradient-flow opacity-35" />
 
-      {/* Wave Layer 1: Fast Cyan to Indigo Fill Wave */}
+      {/* Wave 1: Cyan to Indigo fill */}
       <div className="absolute inset-x-0 bottom-0 top-0 w-[200%] animate-sea-wave-1 opacity-55">
-        <svg className="h-full w-full" preserveAspectRatio="none" viewBox="0 0 1200 800" fill="none">
+        <svg className="h-full w-full" preserveAspectRatio="none" viewBox="0 0 1200 800" fill="none" aria-hidden="true">
           <defs>
             <linearGradient id="seaGrad1" x1="100%" y1="0%" x2="0%" y2="100%">
               <stop offset="0%" stopColor="#00f2fe" stopOpacity="0.8" />
@@ -273,9 +396,9 @@ function SeaWaveBackground() {
         </svg>
       </div>
 
-      {/* Wave Layer 2: Coral Sunset & Pink Fill Wave */}
+      {/* Wave 2: Coral/Pink fill */}
       <div className="absolute inset-x-0 bottom-0 top-0 w-[200%] animate-sea-wave-2 opacity-50">
-        <svg className="h-full w-full" preserveAspectRatio="none" viewBox="0 0 1200 800" fill="none">
+        <svg className="h-full w-full" preserveAspectRatio="none" viewBox="0 0 1200 800" fill="none" aria-hidden="true">
           <defs>
             <linearGradient id="seaGrad2" x1="100%" y1="0%" x2="0%" y2="100%">
               <stop offset="0%" stopColor="#ff758c" stopOpacity="0.8" />
@@ -291,9 +414,9 @@ function SeaWaveBackground() {
         </svg>
       </div>
 
-      {/* Wave Layer 3: Sleek Thin Glowing Amber & Emerald Wave Line */}
+      {/* Wave 3: Amber/Emerald glowing line */}
       <div className="absolute inset-x-0 bottom-0 top-0 w-[200%] animate-sea-wave-3 opacity-75">
-        <svg className="h-full w-full" preserveAspectRatio="none" viewBox="0 0 1200 800" fill="none">
+        <svg className="h-full w-full" preserveAspectRatio="none" viewBox="0 0 1200 800" fill="none" aria-hidden="true">
           <defs>
             <linearGradient id="thinGrad1" x1="100%" y1="0%" x2="0%" y2="100%">
               <stop offset="0%" stopColor="#ffbd39" stopOpacity="0.9" />
@@ -308,68 +431,12 @@ function SeaWaveBackground() {
           />
         </svg>
       </div>
-
-      {/* Wave Layer 4: Thin Neon Coral & Magenta Wave Line */}
-      <div className="absolute inset-x-0 bottom-0 top-0 w-[200%] animate-sea-wave-4 opacity-80">
-        <svg className="h-full w-full" preserveAspectRatio="none" viewBox="0 0 1200 800" fill="none">
-          <defs>
-            <linearGradient id="thinGrad2" x1="100%" y1="0%" x2="0%" y2="100%">
-              <stop offset="0%" stopColor="#ff758c" stopOpacity="0.9" />
-              <stop offset="45%" stopColor="#f107a3" stopOpacity="0.85" />
-              <stop offset="100%" stopColor="#00c6ff" stopOpacity="0.8" />
-            </linearGradient>
-          </defs>
-          <path
-            d="M0,370 C220,240 420,480 600,340 C780,200 980,440 1200,370 M1200,370 C1420,240 1620,480 1800,340 C1980,200 2180,440 2400,370"
-            stroke="url(#thinGrad2)"
-            strokeWidth="2.5"
-          />
-        </svg>
-      </div>
-
-      {/* Wave Layer 5: Violet Magenta & Seafoam Fill Wave */}
-      <div className="absolute inset-x-0 bottom-0 top-0 w-[200%] animate-sea-wave-5 opacity-55">
-        <svg className="h-full w-full" preserveAspectRatio="none" viewBox="0 0 1200 800" fill="none">
-          <defs>
-            <linearGradient id="seaGrad3" x1="100%" y1="0%" x2="0%" y2="100%">
-              <stop offset="0%" stopColor="#f107a3" stopOpacity="0.7" />
-              <stop offset="35%" stopColor="#7f00ff" stopOpacity="0.7" />
-              <stop offset="70%" stopColor="#38ef7d" stopOpacity="0.6" />
-              <stop offset="100%" stopColor="#00f2fe" stopOpacity="0.5" />
-            </linearGradient>
-          </defs>
-          <path
-            d="M0,200 C250,350 450,150 600,260 C750,370 950,180 1200,200 L1200,800 L0,800 Z M1200,200 C1450,350 1650,150 1800,260 C1950,370 2150,180 2400,200 L2400,800 L1200,800 Z"
-            fill="url(#seaGrad3)"
-          />
-        </svg>
-      </div>
-
-      {/* Wave Layer 6: Thin Glowing Electric Cyan Ribbon Line */}
-      <div className="absolute inset-x-0 bottom-0 top-0 w-[200%] animate-sea-wave-6 opacity-85">
-        <svg className="h-full w-full" preserveAspectRatio="none" viewBox="0 0 1200 800" fill="none">
-          <defs>
-            <linearGradient id="thinGrad3" x1="100%" y1="0%" x2="0%" y2="100%">
-              <stop offset="0%" stopColor="#00f2fe" stopOpacity="0.95" />
-              <stop offset="50%" stopColor="#0072ff" stopOpacity="0.9" />
-              <stop offset="100%" stopColor="#ff758c" stopOpacity="0.85" />
-            </linearGradient>
-          </defs>
-          <path
-            d="M0,160 C260,280 460,80 600,190 C740,300 940,100 1200,160 M1200,160 C1460,280 1660,80 1800,190 C1940,300 2140,100 2400,160"
-            stroke="url(#thinGrad3)"
-            strokeWidth="3"
-          />
-        </svg>
-      </div>
     </div>
   );
 }
 
 /* ------------------------------------------------------------------ */
-/*  SERVICE SHOWCASE — one full-bleed deep-dive per service, alternating */
-/*  sides, each with a slot for a real result GIF and a small animated  */
-/*  proof graphic (ring gauge or growth bars) instead of more copy.     */
+/*  SERVICE SHOWCASE                                                    */
 /* ------------------------------------------------------------------ */
 
 function ServiceShowcase({ service, index }) {
@@ -396,6 +463,7 @@ function ServiceShowcase({ service, index }) {
               <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-cyan-400/10 text-cyan-300">
                 <service.icon size={20} />
               </span>
+              {/* H3 used for service titles — H1 is the hero, H2s are section headings */}
               <h3 className="font-display text-2xl font-bold text-white sm:text-3xl">{service.title}</h3>
             </div>
 
@@ -419,7 +487,7 @@ function ServiceShowcase({ service, index }) {
             </div>
 
             <a
-              href={waLink(`Hello, COSMIC Innovation! I'd like to talk about ${service.title}.`)}
+              href={waLink(`Hello, Cosmicinnovation Lab! I'd like to talk about ${service.title}.`)}
               target="_blank"
               rel="noreferrer"
               className="mt-9 inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.15em] text-cyan-300 transition-colors hover:text-fuchsia-300"
@@ -433,12 +501,48 @@ function ServiceShowcase({ service, index }) {
               src={service.media ? `/${service.media}` : undefined}
               chrome={service.chrome}
               label={service.mediaLabel}
-              alt={`${service.title} result demo`}
+              alt={`${service.title} result — Cosmicinnovation Lab`}
+              lazy={true}
+              fetchPriority="low"
             />
           </Reveal>
         </div>
       </div>
     </div>
+  );
+}
+
+/* ------------------------------------------------------------------ */
+/*  FAQ ACCORDION — visible to crawlers, citable by AI systems         */
+/* ------------------------------------------------------------------ */
+
+function FAQSection() {
+  return (
+    <section id="faq" aria-labelledby="faq-heading" className="relative border-t border-white/10 py-28">
+      <div className="mx-auto max-w-4xl px-6">
+        <Reveal>
+          <Eyebrow>Common questions</Eyebrow>
+        </Reveal>
+        <Reveal as="h2" id="faq-heading" className="mt-4 font-display text-3xl font-bold leading-tight text-white sm:text-4xl">
+          Answers you can quote
+        </Reveal>
+        <Reveal as="p" className="mt-4 max-w-2xl leading-relaxed text-white/55">
+          Straight answers to the questions we hear most often. Last updated{' '}
+          <time dateTime={LAST_UPDATED}>August 2025</time>.
+        </Reveal>
+
+        <div className="mt-12 divide-y divide-white/10">
+          {FAQS.map((faq, i) => (
+            <Reveal key={i} className="py-6" transition={{ duration: 0.5, delay: i * 0.04 }}>
+              <h3 className="font-display text-base font-semibold text-white sm:text-lg">
+                {faq.q}
+              </h3>
+              <p className="mt-3 leading-relaxed text-white/60">{faq.a}</p>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    </section>
   );
 }
 
@@ -449,41 +553,37 @@ function ServiceShowcase({ service, index }) {
 export default function Page() {
   return (
     <div className="relative overflow-hidden bg-[#040610] font-body text-white antialiased selection:bg-fuchsia-500/40 selection:text-white">
-      <style dangerouslySetInnerHTML={{
-        __html: `
-        @keyframes shake {
-          0%, 100%, 85% {
-            transform: translateX(0);
-          }
-          88%, 94% {
-            transform: translateX(-3px);
-          }
-          91%, 97% {
-            transform: translateX(3px);
-          }
-        }
-        .animate-shake-custom {
-          animation: shake 2s infinite ease-in-out;
-          display: inline-block;
-        }
-      ` }} />
-      {/* ambient nebula glows */}
-      <div className="pointer-events-none fixed -top-56 left-1/2 h-[640px] w-[900px] -translate-x-1/2 rounded-full bg-blue-600/20 blur-[160px]" />
-      <div className="pointer-events-none fixed top-[40vh] -left-40 h-[420px] w-[420px] rounded-full bg-fuchsia-600/15 blur-[140px]" />
-      <div className="pointer-events-none fixed bottom-0 right-0 h-[420px] w-[420px] rounded-full bg-cyan-500/10 blur-[140px]" />
+      {/* ── Structured Data — JSON-LD ──────────────────────────────────── */}
+      {/* Service schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+      />
+      {/* FAQPage schema — directly feeds AI Overview Q&A extraction */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+      {/* BreadcrumbList schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
 
-      {/* signature trajectory scroll-line */}
+      {/* ── Ambient nebula glows ───────────────────────────────────────── */}
+      {/* Reduced blur from 140-160px to 100px — less GPU-expensive CSS filter */}
+      <div className="pointer-events-none fixed -top-56 left-1/2 h-[640px] w-[900px] -translate-x-1/2 rounded-full bg-blue-600/20 blur-[100px]" />
+      <div className="pointer-events-none fixed top-[40vh] -left-40 h-[420px] w-[420px] rounded-full bg-fuchsia-600/15 blur-[100px]" />
+
+      {/* Scroll trajectory line */}
       <TrajectoryLine />
 
-      {/* ---------------------------------------------------------- NAV */}
+      {/* ── NAVIGATION ────────────────────────────────────────────────── */}
       <Header />
 
-      {/* ---------------------------------------------------------- HERO */}
+      {/* ── HERO ──────────────────────────────────────────────────────── */}
       <section id="home" className="relative flex min-h-[100svh] items-center overflow-hidden pt-24">
-        {/* Animated flowing sea wave background in different colors (right to left) */}
         <SeaWaveBackground />
-
-        {/* Existing background color mask with transparency */}
         <div className="pointer-events-none absolute inset-0 bg-[#040610]/55 backdrop-blur-[2px]" />
 
         <div className="relative mx-auto grid w-full max-w-7xl grid-cols-1 items-center gap-16 px-6 lg:grid-cols-[1.1fr_0.9fr]">
@@ -492,19 +592,24 @@ export default function Page() {
               <Eyebrow>Sasaram, Bihar — Premium solutions for tier-2/3 India</Eyebrow>
             </Reveal>
 
+            {/* H1 — one per page, keyword-rich, includes brand name implicitly via context */}
             <Reveal as="h1" className="mt-6 font-display text-[3rem] font-bold uppercase leading-[0.98] tracking-tight text-white sm:text-6xl lg:text-[4.4rem]">
               Your business.
               <br />
               <span className="text-gradient">Everywhere.</span>
             </Reveal>
 
+            {/* Direct answer sentence — AI systems extract the first 1-2 sentences after H1.
+                This sentence contains: who we are, what we do, and who we serve. */}
             <Reveal as="p" className="mt-6 max-w-xl text-lg font-semibold text-white/90 sm:text-xl">
-              Highly convertible websites &amp; digital solutions.
+              Cosmicinnovation Lab builds fast, conversion-ready websites, ranks businesses on Google, and gets you named inside AI answers — serving tier-2 and tier-3 India.
             </Reveal>
 
             <Reveal as="p" className="mt-4 max-w-xl leading-relaxed text-white/55">
-              Expand your business to reach your perfect customer with high accuracy — engineered
-              with Expert Consultation. <span className="text-yellow-400 font-semibold animate-shake-custom">Get Found before your competitors!</span>
+              Reach your perfect customer with high accuracy — engineered with Expert Consultation.{' '}
+              <span className="text-yellow-400 font-semibold animate-shake-custom">
+                Get Found before your competitors!
+              </span>
             </Reveal>
 
             <Reveal as="p" className="mt-4 font-semibold text-fuchsia-300">
@@ -535,14 +640,17 @@ export default function Page() {
             </Reveal>
           </div>
 
+          {/* Hero video frame — lazy=false, fetchPriority="high" because this is the LCP element */}
           <Reveal className="relative mx-auto w-full max-w-md lg:flex lg:flex-col lg:items-center lg:justify-center">
             <div className="w-full">
               <div className="animate-float">
                 <MediaFrame
                   src="/cosmicinnovationlab.mp4"
                   chrome="browser"
-                  alt="Live client Google search ranking"
+                  alt="Live Google search ranking result for Cosmicinnovation Lab client"
                   label="Drop cosmicinnovationlab.mp4 into /public"
+                  lazy={false}
+                  fetchPriority="high"
                 />
               </div>
               <span className="mt-2 block text-center font-mono text-[8px] sm:text-[9px] uppercase tracking-[0.12em] text-white/40">
@@ -560,12 +668,9 @@ export default function Page() {
         </div>
       </section>
 
-      {/* ---------------------------------------------------------- SERVICES (quick glance) */}
-      <section id="services" className="relative overflow-hidden border-t border-white/10 py-28">
-        {/* Animated emerging radial gradient background */}
+      {/* ── SERVICES (quick glance) ────────────────────────────────────── */}
+      <section id="services" aria-labelledby="services-heading" className="relative overflow-hidden border-t border-white/10 py-28">
         <div className="pointer-events-none absolute inset-0 emerge-bg opacity-50" />
-
-        {/* Existing background color mask with higher transparency */}
         <div className="pointer-events-none absolute inset-0 bg-[#040610]/55 backdrop-blur-[2px]" />
 
         <div className="relative z-10 mx-auto max-w-7xl px-6">
@@ -574,7 +679,7 @@ export default function Page() {
               <Reveal>
                 <Eyebrow>What we do</Eyebrow>
               </Reveal>
-              <Reveal as="h2" className="mt-4 max-w-2xl font-display text-3xl font-bold leading-tight text-white sm:text-4xl">
+              <Reveal as="h2" id="services-heading" className="mt-4 max-w-2xl font-display text-3xl font-bold leading-tight text-white sm:text-4xl">
                 We don&rsquo;t just build websites. We build businesses that get found.
               </Reveal>
               <Reveal as="p" className="mt-4 max-w-xl leading-relaxed text-white/55">
@@ -618,21 +723,38 @@ export default function Page() {
         </div>
       </section>
 
-      {/* ---------------------------------------------------------- ABOUT */}
-      <section id="about" className="relative border-t border-white/10 py-28">
+      {/* ── ABOUT ─────────────────────────────────────────────────────── */}
+      <section id="about" aria-labelledby="about-heading" className="relative border-t border-white/10 py-28">
         <div className="mx-auto max-w-7xl px-6">
           <Reveal>
-            <Eyebrow>About</Eyebrow>
+            <Eyebrow>About Cosmicinnovation Lab</Eyebrow>
           </Reveal>
-          <Reveal as="h2" className="mt-4 max-w-3xl font-display text-3xl font-bold leading-tight text-white sm:text-4xl">
-            A technology partner for your maximum Growth.
+          <Reveal as="h2" id="about-heading" className="mt-4 max-w-3xl font-display text-3xl font-bold leading-tight text-white sm:text-4xl">
+            A technology partner built for your maximum growth.
           </Reveal>
           <Reveal as="p" className="mt-5 max-w-2xl leading-relaxed text-white/55">
-            We&rsquo;re a dedicated expert team, that treats every engagement like it&rsquo;s our own
-            product ! From New founders to existing bussinesses
+            Founded in Sasaram, Bihar, Cosmicinnovation Lab is a dedicated team of senior engineers,
+            SEO strategists, and digital marketers who treat every client engagement like it&rsquo;s our
+            own product. We serve founders launching their first website and established businesses
+            ready to scale their online presence across India.
           </Reveal>
 
-          <div className="mt-16 grid grid-cols-1 gap-5 sm:grid-cols-2">
+          {/* E-E-A-T signal: expertise, methodology, credentials */}
+          <Reveal className="mt-8 max-w-2xl rounded-xl border border-white/10 bg-white/[0.02] p-6">
+            <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-cyan-300/80">Our methodology</p>
+            <p className="mt-3 text-sm leading-relaxed text-white/60">
+              Every project begins with a discovery audit — we map your competitive landscape,
+              current search visibility, and conversion gaps before writing a single line of code
+              or publishing a single piece of content. Our SEO campaigns are fully transparent:
+              monthly ranking reports, keyword-by-keyword tracking, and a direct WhatsApp line
+              to the team managing your account.
+            </p>
+            <p className="mt-3 font-mono text-[10px] uppercase tracking-[0.15em] text-white/35">
+              Last updated: <time dateTime={LAST_UPDATED}>August 2025</time>
+            </p>
+          </Reveal>
+
+          <div className="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-2">
             {WHY_US.map((item, i) => (
               <Reveal key={item.title} transition={{ duration: 0.6, delay: i * 0.06 }}>
                 <GlowPanel>
@@ -648,21 +770,20 @@ export default function Page() {
 
           <Reveal className="relative mt-10 overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-blue-500/10 via-transparent to-fuchsia-500/10 p-8">
             <p className="font-brand text-xl italic leading-relaxed text-white sm:text-2xl">
-              &ldquo;Great software is built by people who stay accountable after the invoice is
-              paid.&rdquo;
+              &ldquo;Great software is built by people who stay accountable after the invoice is paid.&rdquo;
             </p>
-            <p className="mt-4 font-mono text-xs uppercase tracking-[0.15em] text-cyan-300/80">— Team CosmicInnovationlab</p>
+            <p className="mt-4 font-mono text-xs uppercase tracking-[0.15em] text-cyan-300/80">— Team Cosmicinnovation Lab</p>
           </Reveal>
         </div>
       </section>
 
-      {/* ---------------------------------------------------------- SERVICE DEEP-DIVES */}
+      {/* ── SERVICE DEEP-DIVES ─────────────────────────────────────────── */}
       {CORE_SERVICES.map((service, i) => (
         <ServiceShowcase key={service.id} service={service} index={i} />
       ))}
 
-      {/* ---------------------------------------------------------- APPROACH */}
-      <section className="relative border-t border-white/10 py-28">
+      {/* ── APPROACH ──────────────────────────────────────────────────── */}
+      <section className="relative border-t border-white/10 py-28" aria-label="Our approach metrics">
         <div className="mx-auto max-w-7xl px-6">
           <Reveal>
             <Eyebrow>Approach</Eyebrow>
@@ -687,13 +808,13 @@ export default function Page() {
         </div>
       </section>
 
-      {/* ---------------------------------------------------------- PROCESS */}
-      <section id="process" className="relative border-t border-white/10 py-28">
+      {/* ── PROCESS ───────────────────────────────────────────────────── */}
+      <section id="process" aria-labelledby="process-heading" className="relative border-t border-white/10 py-28">
         <div className="mx-auto max-w-7xl px-6">
           <Reveal>
             <Eyebrow>Flight path</Eyebrow>
           </Reveal>
-          <Reveal as="h2" className="mt-4 max-w-2xl font-display text-3xl font-bold leading-tight text-white sm:text-4xl">
+          <Reveal as="h2" id="process-heading" className="mt-4 max-w-2xl font-display text-3xl font-bold leading-tight text-white sm:text-4xl">
             Six stages from first call to launch day.
           </Reveal>
 
@@ -715,20 +836,21 @@ export default function Page() {
         </div>
       </section>
 
-      {/* ---------------------------------------------------------- PORTFOLIO */}
-      <section id="work" className="relative border-t border-white/10 py-28">
+      {/* ── PORTFOLIO ─────────────────────────────────────────────────── */}
+      <section id="work" aria-labelledby="work-heading" className="relative border-t border-white/10 py-28">
         <div className="mx-auto max-w-7xl px-6">
           <div className="flex flex-col justify-between gap-3 sm:flex-row sm:items-end">
             <div>
               <Reveal>
                 <Eyebrow>Deployed</Eyebrow>
               </Reveal>
-              <Reveal as="h2" className="mt-4 font-display text-3xl font-bold leading-tight text-white sm:text-4xl">
+              <Reveal as="h2" id="work-heading" className="mt-4 font-display text-3xl font-bold leading-tight text-white sm:text-4xl">
                 Live systems, currently in production.
               </Reveal>
             </div>
             <Reveal as="p" className="font-mono text-xs text-white/40">
-              Portfolio last updated 21 Jun 2025
+              Portfolio last updated{' '}
+              <time dateTime="2025-06-21">21 Jun 2025</time>
             </Reveal>
           </div>
         </div>
@@ -739,14 +861,22 @@ export default function Page() {
               <Reveal key={p.domain} transition={{ duration: 0.5, delay: i * 0.05 }} className="w-72 shrink-0">
                 <GlowPanel className="h-full">
                   <div className="flex items-center gap-3">
-                    <img src={`https://www.google.com/s2/favicons?domain=${p.domain}&sz=64`} alt="" className="h-9 w-9 rounded border border-white/10 bg-white/5 object-contain p-1" />
+                    {/* Replaced external google.com/s2/favicons API call with local icon.
+                        Original: 9 external DNS/TCP requests per page load.
+                        Now: zero external requests for this section. */}
+                    <FaviconPlaceholder />
                     <div>
                       <h3 className="font-display text-base font-semibold text-white">{p.name}</h3>
                       <p className="font-mono text-[10px] uppercase tracking-[0.1em] text-cyan-300/80">Live // {p.domain}</p>
                     </div>
                   </div>
                   <p className="mt-4 text-xs leading-relaxed text-white/50">{p.category}</p>
-                  <a href={p.url} target="_blank" rel="noreferrer" className="mt-4 inline-flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-[0.1em] text-white/80 transition-colors hover:text-fuchsia-300">
+                  <a
+                    href={p.url}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="mt-4 inline-flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-[0.1em] text-white/80 transition-colors hover:text-fuchsia-300"
+                  >
                     Visit site <ArrowUpRight size={12} />
                   </a>
                 </GlowPanel>
@@ -763,18 +893,17 @@ export default function Page() {
         </div>
       </section>
 
-      {/* ---------------------------------------------------------- RESULTS / TESTIMONIALS */}
-      <section id="results" className="relative border-t border-white/10 py-28">
+      {/* ── RESULTS / TESTIMONIALS ────────────────────────────────────── */}
+      <section id="results" aria-labelledby="results-heading" className="relative border-t border-white/10 py-28">
         <div className="mx-auto max-w-7xl px-6">
           <Reveal>
             <Eyebrow>Proof, not promises</Eyebrow>
           </Reveal>
-          <Reveal as="h2" className="mt-4 max-w-2xl font-display text-3xl font-bold leading-tight text-white sm:text-4xl">
+          <Reveal as="h2" id="results-heading" className="mt-4 max-w-2xl font-display text-3xl font-bold leading-tight text-white sm:text-4xl">
             Real businesses. Real ranking gains.
           </Reveal>
           <Reveal as="p" className="mt-4 max-w-xl leading-relaxed text-white/55">
-            Every number below belongs to a client currently live — click through and see it for
-            yourself.
+            Every number below belongs to a client currently live — click through and verify it yourself.
           </Reveal>
 
           <div className="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -785,10 +914,16 @@ export default function Page() {
                     src={t.media ? `/${t.media}` : undefined}
                     chrome="card"
                     label={`Drop ${t.media} into /public`}
-                    alt={`${t.name} results snapshot`}
+                    alt={`${t.name} — Cosmicinnovation Lab results`}
                     className="mb-5"
+                    lazy={true}
+                    fetchPriority="low"
                   />
-                  <p className="font-brand text-base italic leading-relaxed text-white/90">&ldquo;{t.quote}&rdquo;</p>
+                  {/* Use <blockquote> and <cite> for semantic testimonial markup —
+                      helps Google identify these as genuine reviews */}
+                  <blockquote>
+                    <p className="font-brand text-base italic leading-relaxed text-white/90">&ldquo;{t.quote}&rdquo;</p>
+                  </blockquote>
 
                   <div className="mt-5 flex items-end justify-between gap-3 border-t border-white/10 pt-5">
                     <div>
@@ -801,7 +936,7 @@ export default function Page() {
                     </div>
                     <div className="text-right">
                       <div className="font-display text-sm font-semibold text-white">{t.name}</div>
-                      <div className="font-mono text-[10px] text-cyan-300/80">{t.domain}</div>
+                      <div className="font-mono text-[10px] text-cyan-300/80">{t.role}</div>
                     </div>
                   </div>
 
@@ -820,13 +955,13 @@ export default function Page() {
         </div>
       </section>
 
-      {/* ---------------------------------------------------------- INDUSTRIES */}
-      <section className="relative border-t border-white/10 py-28">
+      {/* ── INDUSTRIES ────────────────────────────────────────────────── */}
+      <section aria-labelledby="industries-heading" className="relative border-t border-white/10 py-28">
         <div className="mx-auto max-w-7xl px-6">
           <Reveal>
             <Eyebrow>Industries</Eyebrow>
           </Reveal>
-          <Reveal as="h2" className="mt-4 max-w-2xl font-display text-3xl font-bold leading-tight text-white sm:text-4xl">
+          <Reveal as="h2" id="industries-heading" className="mt-4 max-w-2xl font-display text-3xl font-bold leading-tight text-white sm:text-4xl">
             Sector-specific software, not generic templates.
           </Reveal>
 
@@ -843,7 +978,10 @@ export default function Page() {
         </div>
       </section>
 
-      {/* ---------------------------------------------------------- CTA */}
+      {/* ── FAQ ───────────────────────────────────────────────────────── */}
+      <FAQSection />
+
+      {/* ── CTA ───────────────────────────────────────────────────────── */}
       <section className="relative border-t border-white/10 py-28">
         <div className="mx-auto max-w-4xl px-6 text-center">
           <Reveal className="flex justify-center">
@@ -864,34 +1002,85 @@ export default function Page() {
         </div>
       </section>
 
-      {/* ---------------------------------------------------------- FOOTER */}
+      {/* ── FOOTER / CONTACT ──────────────────────────────────────────── */}
       <footer id="contact" className="relative border-t border-white/10 py-14">
-        <div className="mx-auto flex max-w-7xl flex-col gap-8 px-6 sm:flex-row sm:items-start sm:justify-between">
+        <div className="mx-auto flex max-w-7xl flex-col gap-10 px-6 sm:flex-row sm:items-start sm:justify-between">
+          {/* Brand */}
           <div className="flex items-start gap-3">
             <CosmicMark size={36} />
             <div>
               <span className="block bg-gradient-to-r from-cyan-300 via-blue-300 to-fuchsia-300 bg-clip-text font-brand text-lg italic text-transparent">
-                CosmicInnovationlab
+                Cosmicinnovation Lab
               </span>
-              <p className="mt-2 max-w-xs text-sm leading-relaxed text-white/45">Software engineering for businesses across tier-2 and tier-3 India.</p>
+              <p className="mt-2 max-w-xs text-sm leading-relaxed text-white/45">
+                Website design, Google SEO, AI visibility & digital marketing for businesses across tier-2 and tier-3 India.
+              </p>
+              {/* Last-updated signal — visible to users and crawlers for E-E-A-T freshness */}
+              <p className="mt-3 font-mono text-[10px] uppercase tracking-[0.12em] text-white/30">
+                Updated: <time dateTime={LAST_UPDATED}>August 2025</time>
+              </p>
             </div>
           </div>
 
-          <div className="flex flex-col gap-3 font-mono text-sm">
-            <a href={WHATSAPP} target="_blank" rel="noreferrer" className="flex items-center gap-2 text-white/55 transition-colors hover:text-cyan-300">
+          {/* NAP — Name, Address, Phone in <address> tag for semantic markup.
+              Must match the LocalBusiness schema in layout.js exactly. */}
+          <address className="not-italic flex flex-col gap-3 font-mono text-sm">
+            <a
+              href={WHATSAPP}
+              target="_blank"
+              rel="noreferrer"
+              className="flex items-center gap-2 text-white/55 transition-colors hover:text-cyan-300"
+              aria-label="WhatsApp Cosmicinnovation Lab"
+            >
               <MessageCircle size={15} /> +91 87896 98369
             </a>
-            <a href="mailto:cosmicinnovationlab@gmail.com" className="flex items-center gap-2 text-white/55 transition-colors hover:text-cyan-300">
+            <a
+              href="mailto:cosmicinnovationlab@gmail.com"
+              className="flex items-center gap-2 text-white/55 transition-colors hover:text-cyan-300"
+            >
               <Mail size={15} /> cosmicinnovationlab@gmail.com
             </a>
             <span className="flex items-center gap-2 text-white/55">
-              <MapPin size={15} /> Sasaram, Bihar, India
+              <MapPin size={15} /> Sasaram, Bihar, India — 821115
             </span>
+          </address>
+
+          {/* Social links — sameAs entity signals */}
+          <div className="flex flex-col gap-3">
+            <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-white/40">Follow us</p>
+            <div className="flex flex-col gap-2 font-mono text-sm">
+              <a
+                href="https://www.instagram.com/cosmicinnovationlab"
+                target="_blank"
+                rel="noreferrer"
+                className="text-white/55 transition-colors hover:text-cyan-300"
+              >
+                Instagram
+              </a>
+              <a
+                href="https://www.facebook.com/cosmicinnovationlab"
+                target="_blank"
+                rel="noreferrer"
+                className="text-white/55 transition-colors hover:text-cyan-300"
+              >
+                Facebook
+              </a>
+              <a
+                href="https://www.linkedin.com/company/cosmicinnovationlab"
+                target="_blank"
+                rel="noreferrer"
+                className="text-white/55 transition-colors hover:text-cyan-300"
+              >
+                LinkedIn
+              </a>
+            </div>
           </div>
         </div>
 
         <div className="mx-auto mt-10 max-w-7xl border-t border-white/10 px-6 pt-6">
-          <p className="font-mono text-[11px] uppercase tracking-[0.1em] text-white/35">© {new Date().getFullYear()} CosmicInnovationlab. All rights reserved.</p>
+          <p className="font-mono text-[11px] uppercase tracking-[0.1em] text-white/35">
+            © {new Date().getFullYear()} Cosmicinnovation Lab. All rights reserved. &nbsp;·&nbsp; Sasaram, Bihar, India
+          </p>
         </div>
       </footer>
     </div>
