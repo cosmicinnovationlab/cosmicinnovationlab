@@ -2,25 +2,96 @@
 
 /* ── CSS Custom Properties ─────────────────────────────────────────────── */
 :root {
-  --background: #040610;
-  --foreground: #ffffff;
+  --ink: #14162B;
+  --cream: #FFF8E7;
+  --yellow: #FFC933;
+  --cobalt: #2F55E8;
+  --pink: #FF8FB0;
+  --background: var(--cream);
+  --foreground: var(--ink);
 }
 
 /* ── Body defaults ──────────────────────────────────────────────────────── */
 body {
-  background: var(--background);
-  color: var(--foreground);
+  background: var(--cream);
+  color: var(--ink);
   font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
 }
 
 html {
   scroll-behavior: smooth;
-  background: #040610;
+  background: var(--cream);
 }
 
 section[id],
 div[id^='service-'] {
   scroll-margin-top: 88px;
+}
+
+/* ── Neo-brutalist Design System Utilities ──────────────────────────────── */
+.card {
+  border: 3px solid var(--ink);
+  border-radius: 1.25rem;
+  background: #fff;
+  box-shadow: 5px 5px 0 var(--ink);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border: 3px solid var(--ink);
+  border-radius: 0.75rem;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 800;
+  background: var(--yellow);
+  color: var(--ink);
+  box-shadow: 4px 4px 0 var(--ink);
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+
+.btn:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0 var(--ink);
+}
+
+.btn:active {
+  transform: translate(4px, 4px);
+  box-shadow: none;
+}
+
+.sticker {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid var(--ink);
+  border-radius: 9999px;
+  box-shadow: 3px 3px 0 var(--ink);
+  font-weight: 800;
+  color: var(--ink);
+  transform: rotate(var(--r, 0deg));
+  transition: transform 0.3s ease;
+}
+
+.sticker:hover {
+  animation: wobble 0.5s ease-in-out;
+}
+
+@keyframes wobble {
+  0%, 100% { transform: rotate(var(--r, 0deg)); }
+  30% { transform: rotate(calc(var(--r, 0deg) - 6deg)); }
+  70% { transform: rotate(calc(var(--r, 0deg) + 6deg)); }
+}
+
+.marquee {
+  animation: marquee 26s linear infinite;
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
 }
 
 /* ── Font utilities ─────────────────────────────────────────────────────── */
@@ -93,11 +164,11 @@ div[id^='service-'] {
 }
 
 @keyframes emerge {
-  to { --o: calc(var(--s) * 7); }
+  to { --o: calc(var(--s) * 6); }
 }
 
 .emerge-bg {
-  --s: 20px;
+  --s: 26px;
   --o: 0px;
   --p0: calc(var(--o));
   --p1: calc(var(--o) + var(--s) * 1);
@@ -106,21 +177,46 @@ div[id^='service-'] {
   --p4: calc(var(--o) + var(--s) * 4);
   --p5: calc(var(--o) + var(--s) * 5);
   --p6: calc(var(--o) + var(--s) * 6);
-  --p7: calc(var(--o) + var(--s) * 7);
   background-image: repeating-radial-gradient(
-    circle,
-    #f0a6b2 var(--p0) var(--p1),
-    #836dde var(--p1) var(--p2),
-    #5b9ff7 var(--p2) var(--p3),
-    #76c94e var(--p3) var(--p4),
-    #febf20 var(--p4) var(--p5),
-    #f7941c var(--p5) var(--p6),
-    #ee4b47 var(--p6) var(--p7)
+    circle at center,
+    #dc2626 var(--p0) var(--p1), /* Crimson Red */
+    #059669 var(--p1) var(--p2), /* Emerald Green */
+    #0891b2 var(--p2) var(--p3), /* Deep Cyan */
+    #1d4ed8 var(--p3) var(--p4), /* Royal Blue */
+    #6d28d9 var(--p4) var(--p5), /* Deep Purple */
+    #4f46e5 var(--p5) var(--p6)  /* Electric Indigo */
   );
-  animation: emerge 3s linear infinite;
+  animation: emerge 4s linear infinite;
   /* Isolate compositing — prevents the animation from dirtying the whole page stacking context */
   isolation: isolate;
   contain: layout style;
+}
+
+/* ── Flowing Text Gradient ──────────────────────────────────────────────── */
+@keyframes rainbowFlowText {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.rainbow-text-flow {
+  background: linear-gradient(
+    90deg,
+    #dc2626,
+    #059669,
+    #0891b2,
+    #1d4ed8,
+    #6d28d9,
+    #4f46e5,
+    #dc2626
+  );
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  animation: rainbowFlowText 6s ease infinite;
+  will-change: background-position;
 }
 
 /* ── Sea wave animations (hero background) ──────────────────────────────── */
