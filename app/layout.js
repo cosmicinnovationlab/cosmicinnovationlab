@@ -43,28 +43,28 @@ export const metadata = {
 
   title: {
     default:
-      "Cosmicinnovation Lab | Website Design, Google SEO & Digital Marketing — Sasaram, Bihar",
+      "Cosmicinnovation Lab | Website Design, Google SEO & Digital Marketing — Serving UP & Bihar",
     template: "%s | Cosmicinnovation Lab",
   },
 
   description:
-    "Cosmicinnovation Lab is a digital growth agency in Sasaram, Bihar specialising in custom website design, Google SEO ranking, AI search visibility (GEO), digital marketing, and WhatsApp automation for businesses across tier-2 and tier-3 India. 100+ projects delivered, 100% client satisfaction.",
+    "Cosmicinnovation Lab is a digital growth agency serving UP & Bihar, specialising in custom website design, Google SEO ranking, AI search visibility (GEO), digital marketing, and WhatsApp automation for businesses across tier-2 and tier-3 India. 100+ projects delivered, 100% client satisfaction.",
 
   keywords: [
     "Cosmicinnovation Lab",
     "Cosmicinnovation",
-    "website design Sasaram",
-    "website development Bihar",
+    "website design UP & Bihar",
+    "website development UP & Bihar",
     "Google SEO ranking India",
     "digital marketing tier-2 India",
-    "SEO agency Bihar",
+    "SEO agency UP & Bihar",
     "AI search visibility",
     "GEO optimisation",
     "WhatsApp chatbot automation",
     "social media management India",
-    "website design company Sasaram",
-    "best SEO agency Bihar",
-    "digital marketing agency Sasaram",
+    "website design company UP & Bihar",
+    "best SEO agency UP & Bihar",
+    "digital marketing agency UP & Bihar",
   ],
 
   authors: [{ name: "Cosmicinnovation Lab", url: SITE_URL }],
@@ -86,7 +86,7 @@ export const metadata = {
     title:
       "Cosmicinnovation Lab | Website Design, Google SEO & Digital Marketing",
     description:
-      "Digital growth agency in Sasaram, Bihar. We build fast websites, rank businesses on Google, and get you named inside AI answers on ChatGPT, Gemini & Perplexity.",
+      "Digital growth agency serving UP & Bihar. We build fast websites, rank businesses on Google, and get you named inside AI answers on ChatGPT, Gemini & Perplexity.",
     locale: "en_IN",
     images: [
       {
@@ -104,7 +104,7 @@ export const metadata = {
     title:
       "Cosmicinnovation Lab | Website Design, Google SEO & Digital Marketing",
     description:
-      "Digital growth agency in Sasaram, Bihar. Fast websites, Google #1 rankings, AI visibility.",
+      "Digital growth agency serving UP & Bihar. Fast websites, Google #1 rankings, AI visibility.",
     images: ["/og-image.png"],
   },
 
@@ -159,18 +159,25 @@ const organizationSchema = {
         height: 512,
       },
       description:
-        "Cosmicinnovation Lab is a full-service digital growth agency based in Sasaram, Bihar, India, specialising in website design and development, Google SEO ranking, AI search visibility (GEO/AEO), digital marketing, WhatsApp automation, and social media management for businesses in tier-2 and tier-3 India.",
+        "Cosmicinnovation Lab is a full-service digital growth agency serving UP & Bihar, India, specialising in website design and development, Google SEO ranking, AI search visibility (GEO/AEO), digital marketing, WhatsApp automation, and social media management for businesses in tier-2 and tier-3 India.",
       foundingDate: "2022",
-      areaServed: {
-        "@type": "Country",
-        name: "India",
-      },
+      areaServed: [
+        {
+          "@type": "AdministrativeArea",
+          name: "Uttar Pradesh",
+        },
+        {
+          "@type": "AdministrativeArea",
+          name: "Bihar",
+        },
+        {
+          "@type": "Country",
+          name: "India",
+        },
+      ],
       address: {
         "@type": "PostalAddress",
-        streetAddress: "Sasaram",
-        addressLocality: "Sasaram",
-        addressRegion: "Bihar",
-        postalCode: "821115",
+        addressRegion: "UP & Bihar",
         addressCountry: "IN",
       },
       contactPoint: [
@@ -221,10 +228,7 @@ const organizationSchema = {
       paymentAccepted: "Cash, Bank Transfer, UPI",
       address: {
         "@type": "PostalAddress",
-        streetAddress: "Sasaram",
-        addressLocality: "Sasaram",
-        addressRegion: "Bihar",
-        postalCode: "821115",
+        addressRegion: "UP & Bihar",
         addressCountry: "IN",
       },
       geo: {

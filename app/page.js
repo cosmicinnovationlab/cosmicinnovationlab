@@ -26,7 +26,7 @@ const WHATSAPP = waLink(
   'Hello, Cosmicinnovation Lab! I would like to enquire about your services. Could you please provide more details?'
 );
 
-const LAST_UPDATED = '2025-08-16';
+const LAST_UPDATED = '2026-09-16';
 
 const NAV_LINKS = [
   { label: 'Services', href: '#services' },
@@ -55,7 +55,7 @@ const CORE_SERVICES = [
   {
     id: 'websites', code: '01', category: 'Foundation', title: 'Custom Website Design & Development',
     tagline: 'Modern. Fast. Responsive.',
-    description: 'A site engineered to convert on the first scroll — not a template with your logo dropped on it. Built mobile-first with Core Web Vitals optimisation.',
+    description: 'Super-fast, fully mobile-friendly aur modern website — jo sirf dikhne me achhi nahi, balki visitors ko direct enquiries aur paying customers me convert kare.',
     stat: { value: 189, suffix: '%', label: 'Avg. business growth' }, icon: Monitor,
     media: 'websitegif.gif', mediaLabel: 'Drop websitegif.gif into /public',
     schemaDesc: 'Custom website design and development services for businesses in tier-2 and tier-3 India, including mobile-first responsive websites, landing pages, and web applications.',
@@ -63,7 +63,7 @@ const CORE_SERVICES = [
   {
     id: 'seo', code: '02', category: 'Visibility', title: 'Google SEO & Ranking',
     tagline: 'Rank Higher. Get Found.',
-    description: 'We move a business from page three of Google to the top of the map pack — and keep it there with monthly reporting.',
+    description: 'Aapke business ko Google Search aur Google Maps par Top #1 par rank karwaye — taaki local customers ka direct call aur footfall sabse pehle aapke paas aaye.',
     stat: { value: 327, suffix: '%', label: 'Organic traffic increase' }, icon: Search,
     media: 'google seo ranking.png', mediaLabel: 'Drop google seo ranking.png into /public',
     schemaDesc: 'Google SEO ranking services including local SEO, Google Business Profile optimisation, technical SEO audits, and content strategy for businesses across India.',
@@ -71,7 +71,7 @@ const CORE_SERVICES = [
   {
     id: 'ai-seo', code: '03', category: 'Visibility', title: 'AI & LLM Search Visibility',
     tagline: 'Show up inside the answer.',
-    description: 'Search is moving from ten blue links to one AI answer. We get your business named inside it — on Google Gemini, ChatGPT, and Perplexity.',
+    description: 'Jab bhi log ChatGPT, Google Gemini ya Perplexity par search karein, AI direct aapke business ko recommend kare aur best option bataye.',
     stat: { value: 98, suffix: '%', label: 'Answer match accuracy' }, icon: Sparkles,
     media: 'ai llm visibility seo.png', mediaLabel: 'Drop ai llm visibility seo.png into /public', badge: 'New',
     schemaDesc: 'AI search visibility and Generative Engine Optimisation (GEO/AEO) services — helping businesses get cited in Google AI Overviews, ChatGPT, Gemini, and Perplexity answers.',
@@ -79,7 +79,7 @@ const CORE_SERVICES = [
   {
     id: 'marketing', code: '04', category: 'Growth', title: 'Digital Marketing',
     tagline: 'Reach Right. Convert More.',
-    description: 'Meta Ads and Google Ads campaigns aimed at the customer already looking to buy — not everyone scrolling past.',
+    description: 'High-ROI Meta (Facebook & Instagram) Ads aur Google Ads — taaki faltu clicks me budget na waste ho, sirf high-intent buyers aur genuine leads milein.',
     stat: { value: 80, suffix: '%+', label: 'Qualified leads' }, icon: Megaphone,
     media: 'digital marketing ads.png', mediaLabel: 'Drop digital marketing ads.png into /public',
     schemaDesc: 'Digital marketing services including Meta Ads (Facebook and Instagram), Google Ads, and performance marketing campaigns targeting high-intent buyers.',
@@ -87,7 +87,7 @@ const CORE_SERVICES = [
   {
     id: 'tech', code: '05', category: 'Infrastructure', title: 'WhatsApp Chatbot & Automation',
     tagline: 'Automate. Scale. Save Time.',
-    description: 'Custom WhatsApp bots and automation workflows that replace manual spreadsheets entirely and scale your operations without adding headcount.',
+    description: '24/7 Smart WhatsApp Bot aur auto-reply system — jo customer enquiries instantly handle kare, bookings le aur aapka time aur manual work bachaye.',
     stat: { value: 1000, suffix: '%', label: 'Faster operations' }, icon: Code2,
     media: 'whatsapp automation.jpeg', mediaLabel: 'Drop whatsapp automation.jpeg into /public',
     format: 'mobile',
@@ -97,7 +97,7 @@ const CORE_SERVICES = [
   {
     id: 'social', code: '06', category: 'Growth', title: 'Social Media Management',
     tagline: 'Engage. Grow. Succeed.',
-    description: 'Consistent, on-brand content and community management that turns followers into paying customers.',
+    description: 'Catchy Reels, professional posts aur active community management — jo aapke brand ki reach badhaye aur followers ko loyal customers me convert kare.',
     stat: { value: 10, suffix: 'x', label: 'Engagement growth' }, icon: ThumbsUp,
     media: 'social media management.jpg', mediaLabel: 'Drop social media management.jpg into /public',
     format: 'mobile',
@@ -445,16 +445,16 @@ function ThreeBackground() {
       const mobileSlots = [
         // Top perimeter (above heading & text)
         { x: -1.9, y: 3.5, z: -1.0 },
-        { x: 0.0,  y: 3.8, z: -1.2 },
-        { x: 1.9,  y: 3.5, z: -1.0 },
+        { x: 0.0, y: 3.8, z: -1.2 },
+        { x: 1.9, y: 3.5, z: -1.0 },
         // Outer margins (far left/right edges)
         { x: -2.7, y: 0.8, z: -1.5 },
-        { x: 2.7,  y: 0.8, z: -1.5 },
-        { x: 2.6,  y: -0.8, z: -1.3 },
+        { x: 2.7, y: 0.8, z: -1.5 },
+        { x: 2.6, y: -0.8, z: -1.3 },
         // Bottom perimeter (below text area)
         { x: -1.8, y: -3.5, z: -1.0 },
-        { x: 0.0,  y: -3.8, z: -1.2 },
-        { x: 1.8,  y: -3.5, z: -1.0 },
+        { x: 0.0, y: -3.8, z: -1.2 },
+        { x: 1.8, y: -3.5, z: -1.0 },
       ];
 
       const items = geoms.flatMap((geo, gi) => Array.from({ length: 3 }, (_, i) => {
@@ -713,7 +713,7 @@ function Hero() {
 
       <div className="relative mx-auto grid max-w-7xl grid-cols-1 items-center gap-14 px-6 pb-24 pt-6 lg:grid-cols-[1.1fr_0.9fr]">
         <div>
-          <Reveal><Eyebrow>Sasaram, Bihar — Premium solutions for tier-2/3 India</Eyebrow></Reveal>
+          <Reveal><Eyebrow>Serving UP & Bihar — Premium solutions for tier-2/3 India</Eyebrow></Reveal>
 
           <h1 className={`mt-6 ${F_DISPLAY} text-[3rem] font-extrabold uppercase leading-[0.92] tracking-tight text-[var(--ink)] sm:text-6xl lg:text-[4.2rem]`}>
             {words.map((w, i) => (
@@ -724,7 +724,9 @@ function Hero() {
           </h1>
 
           <Reveal as="p" delay={300} className="mt-6 max-w-xl text-lg font-extrabold text-[var(--ink)]/90 sm:text-xl">
-            Cosmicinnovation Lab builds fast, conversion-ready websites, ranks businesses on Google, and gets you named inside AI answers — serving tier-2 and tier-3 India.
+            हम आपके लिए Customized और World-Class Website बनाते हैं, आपके Business को Google पर सबसे ऊपर दिखाते हैं, आपके Business Ki Marketing kar आपके Customers के सामने लाते हैं, AI Answers में आपके Business को Top पर दिखाते हैं।
+
+            हम भारत के chhote Shahron के Businesses को नई पहचान दिलाते हैं।
           </Reveal>
 
           <Reveal as="p" delay={360} className="mt-4 max-w-xl leading-relaxed">
@@ -898,7 +900,7 @@ function Footer() {
               Website design, Google SEO, AI visibility & digital marketing for businesses across tier-2 and tier-3 India.
             </p>
             <p className="mt-3 font-mono text-[10px] uppercase tracking-wide text-[var(--cream)]/40">
-              Updated: <time dateTime={LAST_UPDATED}>August 2025</time>
+              Updated: <time dateTime={LAST_UPDATED}>Updated this month</time>
             </p>
           </div>
         </div>
@@ -910,7 +912,7 @@ function Footer() {
           <a href="mailto:cosmicinnovationlab@gmail.com" className="flex items-center gap-2 text-[var(--cream)]/70 transition-colors hover:text-[var(--yellow)]">
             <Mail size={15} /> cosmicinnovationlab@gmail.com
           </a>
-          <span className="flex items-center gap-2 text-[var(--cream)]/70"><MapPin size={15} /> Bihar, India</span>
+          <span className="flex items-center gap-2 text-[var(--cream)]/70"><MapPin size={15} /> Serving UP & Bihar</span>
         </address>
 
         <div className="flex flex-col gap-3">
@@ -923,13 +925,16 @@ function Footer() {
         </div>
       </div>
 
-      <div className={`mx-auto mt-14 max-w-7xl overflow-hidden px-6 ${F_DISPLAY} font-extrabold uppercase leading-[0.85]`} style={{ color: 'var(--yellow)', fontSize: 'clamp(2rem, 10vw, 7rem)' }}>
+      <div
+        className={`mx-auto mt-14 w-full max-w-7xl px-4 sm:px-6 text-center whitespace-nowrap overflow-hidden ${F_DISPLAY} font-extrabold uppercase leading-none tracking-tight select-none`}
+        style={{ color: 'var(--yellow)', fontSize: 'clamp(1.15rem, 6.1vw, 6.5rem)' }}
+      >
         Cosmicinnovation Lab
       </div>
 
       <div className="mx-auto mt-10 max-w-7xl border-t-[3px] px-6 pt-6" style={{ borderColor: 'rgba(255,248,231,.15)' }}>
         <p className="text-[11px] uppercase tracking-wide text-[var(--cream)]/40">
-          © {new Date().getFullYear()} Cosmicinnovation Lab. All rights reserved. · Sasaram, Bihar, India
+          © {new Date().getFullYear()} Cosmicinnovation Lab. All rights reserved. · Serving UP & Bihar
         </p>
       </div>
     </footer>
@@ -1018,7 +1023,7 @@ export default function Page() {
 
       <Section id="about" eyebrow="About Cosmicinnovation Lab" title="A technology partner built for your maximum growth.">
         <Reveal as="p" className="max-w-2xl leading-relaxed text-[var(--ink)]/70">
-          Founded in Sasaram, Bihar, Cosmicinnovation Lab is a dedicated team of senior engineers, SEO strategists, and digital marketers who treat every client engagement like it&rsquo;s our own product. We serve founders launching their first website and established businesses ready to scale their online presence across India.
+          Serving UP & Bihar, Cosmicinnovation Lab is a dedicated team of senior engineers, SEO strategists, and digital marketers who treat every client engagement like it&rsquo;s our own product. We serve founders launching their first website and established businesses ready to scale their online presence across India.
         </Reveal>
 
         <Reveal className="card mt-8 max-w-2xl p-6" style={{ background: 'var(--cream)' }}>
@@ -1027,7 +1032,7 @@ export default function Page() {
             Every project begins with a discovery audit — we map your competitive landscape, current search visibility, and conversion gaps before writing a single line of code or publishing a single piece of content. Our SEO campaigns are fully transparent: monthly ranking reports, keyword-by-keyword tracking, and a direct WhatsApp line to the team managing your account.
           </p>
           <p className="mt-3 font-mono text-[10px] uppercase tracking-wide text-[var(--ink)]/40">
-            Last updated: <time dateTime={LAST_UPDATED}>August 2025</time>
+            Last updated: <time dateTime={LAST_UPDATED}>Updated this month</time>
           </p>
         </Reveal>
 
@@ -1072,7 +1077,7 @@ export default function Page() {
       </Section>
 
       <Section id="work" eyebrow="Deployed" title="Live systems, currently in production.">
-        <p className="mt-2 font-mono text-xs text-[var(--ink)]/50">Portfolio last updated <time dateTime="2025-06-21">21 Jun 2025</time></p>
+        <p className="mt-2 font-mono text-xs text-[var(--ink)]/50">Portfolio last updated: <strong>Updated this month</strong> — many more projects yet to be added!</p>
         <div className="-mx-6 mt-10 overflow-x-auto pb-4">
           <div className="flex w-max gap-5 px-6">
             {PORTFOLIO.map((p, i) => (
@@ -1143,7 +1148,7 @@ export default function Page() {
 
       <Section
         id="faq" eyebrow="Common questions" title="Answers you can quote"
-        lead={<>Straight answers to the questions we hear most often. Last updated <time dateTime={LAST_UPDATED}>August 2025</time>.</>}
+        lead={<>Straight answers to the questions we hear most often. Last updated <time dateTime={LAST_UPDATED}>Updated this month</time>.</>}
       >
         <div className="mt-10 divide-y-[3px]" style={{ borderColor: 'var(--ink)' }}>
           {FAQS.map((f, i) => (
